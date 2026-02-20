@@ -1,0 +1,4 @@
+[submodule "vendor/SillyTavern-WorldInfoDrawer"]
+	path = vendor/SillyTavern-WorldInfoDrawer
+	url = https://github.com/lazuli-s/SillyTavern-WorldInfoDrawer
+	branch = dev
