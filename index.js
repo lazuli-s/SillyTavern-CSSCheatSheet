@@ -217,8 +217,8 @@ function buildOverlayHtml() {
             <i class="fa-solid fa-palette csc--header-icon"></i>
             <span class="csc--header-title">CSS Cheat Sheet</span>
             <div class="csc--tabs">
-                <button class="csc--tab csc--tab-active" data-tab="components">Components</button>
-                <button class="csc--tab" data-tab="vars">CSS Variables</button>
+                <button class="menu_button csc--tab csc--tab-active" data-tab="components">Components</button>
+                <button class="menu_button csc--tab" data-tab="vars">CSS Variables</button>
             </div>
         </div>
         <div class="csc--content">
