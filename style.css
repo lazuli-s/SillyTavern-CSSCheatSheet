@@ -6,7 +6,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #000; /* solid opaque backdrop */
+    background: transparent;
     align-items: stretch;
     justify-content: stretch;
 }
@@ -23,6 +23,10 @@
     height: 100%;
     background: var(--SmartThemeBlurTintColor);
     color: var(--SmartThemeBodyColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 10px;
+    backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
     overflow: hidden;
 }
 
