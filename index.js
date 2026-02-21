@@ -167,6 +167,24 @@ const CSS_VAR_GROUPS = [
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
+/** Copies text to clipboard; falls back to execCommand if the Clipboard API fails. */
+function copyText(text) {
+    function execFallback() {
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
+        document.body.appendChild(el);
+        el.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        document.body.removeChild(el);
+    }
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).catch(execFallback);
+    } else {
+        execFallback();
+    }
+}
+
 /** Returns true if the CSS value looks like a color. */
 function isColorValue(value) {
     return /^(rgb|rgba|hsl|hsla|#[0-9a-f]{3,8}|oklch|color\()/i.test(value.trim());
@@ -182,9 +200,9 @@ function escAttr(str) {
 function buildComponentSections() {
     return COMPONENTS.map(({ category, items }) => {
         const cards = items.map(({ name, html }) => `
-            <div class="csc--card" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">
+            <div class="csc--card">
                 <div class="csc--card-preview">${html}</div>
-                <div class="csc--card-name"><i class="fa-regular fa-copy csc--copy-icon"></i> ${name}</div>
+                <div class="csc--card-name" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}"><i class="fa-regular fa-copy csc--copy-icon"></i> ${name}</div>
             </div>`).join('');
         return `
             <section class="csc--section">
@@ -197,9 +215,9 @@ function buildComponentSections() {
 function buildVarSections() {
     return CSS_VAR_GROUPS.map(({ category, vars }) => {
         const cards = vars.map(name => `
-            <div class="csc--var-card" data-copy="${escAttr(name)}" data-varname="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">
+            <div class="csc--var-card" data-varname="${escAttr(name)}">
                 <span class="csc--var-swatch-slot"></span>
-                <span class="csc--var-name">${name}</span>
+                <span class="csc--var-name" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">${name}</span>
                 <i class="fa-regular fa-copy csc--copy-icon"></i>
             </div>`).join('');
         return `
@@ -309,25 +327,25 @@ jQuery(async () => {
         if (e.key === 'Escape' && isOpen) closeCheatSheet();
     });
 
-    // Copy component class name on card click
+    // Copy component class name on card-name click
     document.addEventListener('click', (e) => {
         if (e.target.closest('select')) return; // let the dropdown open normally
-        const card = e.target.closest('.csc--card');
-        if (!card) return;
-        const text = card.dataset.copy;
+        const nameEl = e.target.closest('.csc--card-name');
+        if (!nameEl) return;
+        const text = nameEl.dataset.copy;
         if (!text) return;
-        navigator.clipboard?.writeText(text)?.catch(() => {});
-        flashCopied(card);
+        copyText(text);
+        flashCopied(nameEl);
     });
 
-    // Copy CSS variable name on var-card click
+    // Copy CSS variable name on var-name click
     document.addEventListener('click', (e) => {
-        const card = e.target.closest('.csc--var-card');
-        if (!card) return;
-        const text = card.dataset.copy;
+        const nameEl = e.target.closest('.csc--var-name');
+        if (!nameEl) return;
+        const text = nameEl.dataset.copy;
         if (!text) return;
-        navigator.clipboard?.writeText(text)?.catch(() => {});
-        flashCopied(card);
+        copyText(text);
+        flashCopied(nameEl);
     });
 
     // Tab switching

@@ -1,10 +1,13 @@
 /* ─── CSS Cheat Sheet Extension ─────────────────────────────────────────── */
 
-/* Overlay: full viewport, hidden by default */
+/* Overlay: fills viewport below the top bar, hidden by default */
 .csc--overlay {
     display: none;
     position: fixed;
-    inset: 0;
+    top: var(--topBarBlockSize);
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 9999;
     background: transparent;
     align-items: stretch;
@@ -24,7 +27,7 @@
     background: var(--SmartThemeBlurTintColor);
     color: var(--SmartThemeBodyColor);
     border: 1px solid var(--SmartThemeBorderColor);
-    border-radius: 10px;
+    border-radius: 0;
     backdrop-filter: blur(var(--SmartThemeBlurStrength));
     -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
     overflow: hidden;
@@ -117,11 +120,9 @@
     border: 1px solid var(--SmartThemeBorderColor);
     border-radius: 5px;
     overflow: hidden;
-    cursor: pointer;
     min-width: 160px;
     max-width: 280px;
     transition: border-color var(--animation-duration), background var(--animation-duration);
-    user-select: none;
 }
 
 .csc--card:hover {
@@ -129,14 +130,7 @@
     background: var(--black50a);
 }
 
-/* Flash on copy */
-.csc--card.csc--copied {
-    border-color: var(--active) !important;
-    background: rgba(88,182,0,0.15) !important;
-    transition: none;
-}
-
-/* Preview area: pointer-events off so the card click always registers */
+/* Preview area: pointer-events off so preview widgets don't intercept card-name clicks */
 .csc--card-preview {
     padding: 16px 14px 12px;
     pointer-events: none;
@@ -147,7 +141,7 @@
     flex: 1;
 }
 
-/* Card label */
+/* Card label — this is the only clickable copy target */
 .csc--card-name {
     font-family: var(--monoFontFamily);
     font-size: 0.75em;
@@ -156,6 +150,18 @@
     border-top: 1px solid var(--SmartThemeBorderColor);
     word-break: break-all;
     text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: color var(--animation-duration), background var(--animation-duration), border-top-color var(--animation-duration);
+}
+
+/* Flash on copy — only the name bar turns green */
+.csc--card-name.csc--copied {
+    color: var(--active);
+    background: rgba(88,182,0,0.15);
+    border-top-color: var(--active);
+    opacity: 1;
+    transition: none;
 }
 
 /* ─── CSS variable grid ─────────────────────────────────────────────────── */
@@ -173,23 +179,15 @@
     border: 1px solid var(--SmartThemeBorderColor);
     border-radius: 5px;
     padding: 6px 12px;
-    cursor: pointer;
     font-family: var(--monoFontFamily);
     font-size: 0.8em;
     min-width: 220px;
     transition: border-color var(--animation-duration), background var(--animation-duration);
-    user-select: none;
 }
 
 .csc--var-card:hover {
     border-color: var(--SmartThemeBodyColor);
     background: var(--black50a);
-}
-
-.csc--var-card.csc--copied {
-    border-color: var(--active) !important;
-    background: rgba(88,182,0,0.15) !important;
-    transition: none;
 }
 
 /* Color swatch */
@@ -232,12 +230,22 @@
     flex-shrink: 0;
 }
 
+/* Var name — this is the only clickable copy target in a var-card row */
 .csc--var-name {
     flex: 1;
     min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+    user-select: none;
+    transition: color var(--animation-duration);
+}
+
+/* Flash on copy — only the variable name text turns green */
+.csc--var-name.csc--copied {
+    color: var(--active);
+    transition: none;
 }
 
 .csc--var-swatch-slot {

@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — CSS Cheat Sheet Extension
 
-A SillyTavern frontend extension that adds a full-screen reference overlay showing ST's reusable CSS components and CSS variables. Intended as a developer tool for people building other ST extensions.
+A SillyTavern frontend extension that adds a reference overlay (below the top bar) showing ST's reusable CSS components and CSS variables. Intended as a developer tool for people building other ST extensions.
 
 ---
 
