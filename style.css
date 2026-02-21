@@ -155,10 +155,10 @@
     transition: color var(--animation-duration), background var(--animation-duration), border-top-color var(--animation-duration);
 }
 
-/* Flash on copy — only the name bar turns green */
+/* Flash on copy — only the name bar highlights in the theme active color */
 .csc--card-name.csc--copied {
     color: var(--active);
-    background: rgba(88,182,0,0.15);
+    background: color-mix(in srgb, var(--active) 15%, transparent);
     border-top-color: var(--active);
     opacity: 1;
     transition: none;
@@ -296,7 +296,7 @@
 
 .csc--css-copy-btn.csc--copied {
     color: var(--active);
-    background: rgba(88,182,0,0.15);
+    background: color-mix(in srgb, var(--active) 15%, transparent);
     opacity: 1;
     transition: none;
 }

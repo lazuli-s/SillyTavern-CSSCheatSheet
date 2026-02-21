@@ -22,8 +22,8 @@ const COMPONENTS = [
                 html: '<div class="menu_button fa-solid fa-star" title="Icon button"></div>',
             },
             {
-                name: '.menu_button.world_set.interactable (icon, active color)',
-                html: '<div class="menu_button fa-solid fa-globe world_set interactable" title="Globe button"></div>',
+                name: '.menu_button.toggleEnabled.interactable (icon, active color)',
+                html: '<div class="menu_button fa-solid fa-star toggleEnabled interactable" title="Active button"></div>',
             },
             {
                 name: '.menu_button (icon + label)',
@@ -174,22 +174,10 @@ const COMPONENTS = [
                 name: '.standoutHeader',
                 html: '<div class="standoutHeader" style="width:180px">Section header</div>',
             },
-            {
-                name: '.standoutHeader.inline-drawer-header',
-                html: `<div class="inline-drawer" style="width:220px;min-width:0">
-                    <div class="inline-drawer-toggle inline-drawer-header standoutHeader">
-                        <b>Drawer header</b>
-                        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
-                    </div>
-                    <div class="inline-drawer-content" style="display:none">
-                        <p style="margin:6px 0">Panel content here</p>
-                    </div>
-                </div>`,
-            },
         ],
     },
     {
-        category: 'Panels & Layout',
+        category: 'Drawers',
         items: [
             {
                 name: '.inline-drawer',
@@ -204,12 +192,16 @@ const COMPONENTS = [
                 </div>`,
             },
             {
-                name: '.flex-container',
-                html: '<div class="flex-container"><div class="menu_button">A</div><div class="menu_button">B</div><div class="menu_button">C</div></div>',
-            },
-            {
-                name: '.flex-container.flexGap5',
-                html: '<div class="flex-container flexGap5"><div class="menu_button">One</div><div class="menu_button">Two</div></div>',
+                name: '.standoutHeader.inline-drawer-header',
+                html: `<div class="inline-drawer" style="width:220px;min-width:0">
+                    <div class="inline-drawer-toggle inline-drawer-header standoutHeader">
+                        <b>Drawer header</b>
+                        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+                    </div>
+                    <div class="inline-drawer-content" style="display:none">
+                        <p style="margin:6px 0">Panel content here</p>
+                    </div>
+                </div>`,
             },
         ],
     },
