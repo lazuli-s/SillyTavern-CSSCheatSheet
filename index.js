@@ -129,6 +129,10 @@ const COMPONENTS = [
                 name: '.note-link-span',
                 html: '<span class="fa-solid fa-circle-question note-link-span"></span>',
             },
+            {
+                name: '.fa-solid.fa-circle-info.opacity50p',
+                html: '<div class="fa-solid fa-circle-info opacity50p" title="Info tooltip"></div>',
+            },
         ],
     },
     {
