@@ -56,6 +56,25 @@ const COMPONENTS = [
                 html: '<select class="text_pole"><option>Option one</option><option>Option two</option><option>Option three</option></select>',
             },
             {
+                name: '.select2-selection__choice',
+                html: `<span class="select2-container select2-container--default" style="width:220px">
+                    <span class="selection">
+                        <span class="select2-selection select2-selection--multiple">
+                            <ul class="select2-selection__rendered">
+                                <li class="select2-selection__choice" title="Worldbuilding">
+                                    <button type="button" class="select2-selection__choice__remove" tabindex="-1" title="Remove item" aria-label="Remove item"><span aria-hidden="true">×</span></button>
+                                    <span class="select2-selection__choice__display interactable" tabindex="0">Worldbuilding</span>
+                                </li>
+                                <li class="select2-selection__choice" title="Main Characters">
+                                    <button type="button" class="select2-selection__choice__remove" tabindex="-1" title="Remove item" aria-label="Remove item"><span aria-hidden="true">×</span></button>
+                                    <span class="select2-selection__choice__display interactable" tabindex="0">Main Characters</span>
+                                </li>
+                            </ul>
+                        </span>
+                    </span>
+                </span>`,
+            },
+            {
                 name: '.select2-results',
                 html: `<div class="select2-container select2-container--default select2-container--open" style="width:220px">
                     <div class="select2-dropdown select2-dropdown--below">
