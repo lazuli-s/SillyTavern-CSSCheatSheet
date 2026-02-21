@@ -211,10 +211,6 @@ const COMPONENTS = [
                 name: '.flex-container.flexGap5',
                 html: '<div class="flex-container flexGap5"><div class="menu_button">One</div><div class="menu_button">Two</div></div>',
             },
-            {
-                name: '.sysHR (horizontal rule)',
-                html: '<hr class="sysHR">',
-            },
         ],
     },
     {
