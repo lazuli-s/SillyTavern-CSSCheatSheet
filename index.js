@@ -51,6 +51,21 @@ const COMPONENTS = [
                 name: 'select.text_pole',
                 html: '<select class="text_pole"><option>Option one</option><option>Option two</option><option>Option three</option></select>',
             },
+            {
+                name: '.select2-results',
+                html: `<div class="select2-dropdown" style="width:220px;position:relative;z-index:1">
+                    <div class="select2-search select2-search--dropdown">
+                        <input class="select2-search__field" type="search" placeholder="Search…" tabindex="-1">
+                    </div>
+                    <div class="select2-results">
+                        <ul class="select2-results__options" role="listbox">
+                            <li class="select2-results__option select2-results__option--selectable select2-results__option--selected" role="option">001 Main Characters</li>
+                            <li class="select2-results__option select2-results__option--selectable select2-results__option--highlighted" role="option">002 Worldbuilding</li>
+                            <li class="select2-results__option select2-results__option--selectable" role="option">003 Narrative Arcs</li>
+                        </ul>
+                    </div>
+                </div>`,
+            },
         ],
     },
     {
