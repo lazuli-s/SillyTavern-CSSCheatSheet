@@ -314,6 +314,40 @@ const CSS_VAR_GROUPS = [
     },
 ];
 
+// ── Custom CSS catalog ─────────────────────────────────────────────────────
+const CUSTOM_CSS = [
+    {
+        category: 'Scrollbars',
+        items: [
+            {
+                name: 'Hide scrollbar on #chat',
+                html: `<div style="height:60px;width:120px;overflow-y:scroll;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:4px 8px;font-size:0.78em;scrollbar-width:none"><div style="line-height:1.8">Line 1</div><div style="line-height:1.8">Line 2</div><div style="line-height:1.8">Line 3</div><div style="line-height:1.8">Line 4</div><div style="line-height:1.8">Line 5</div></div>`,
+                css: `#chat {\n    overflow-y: scroll;\n    scrollbar-width: none; /* Firefox */\n}\n#chat::-webkit-scrollbar {\n    display: none; /* Chrome, Safari */\n}`,
+            },
+            {
+                name: 'Thin themed scrollbar',
+                html: `<div style="height:60px;width:120px;overflow-y:scroll;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:4px 8px;font-size:0.78em"><div style="line-height:1.8">Line 1</div><div style="line-height:1.8">Line 2</div><div style="line-height:1.8">Line 3</div><div style="line-height:1.8">Line 4</div><div style="line-height:1.8">Line 5</div></div>`,
+                css: `::-webkit-scrollbar {\n    width: 4px;\n}\n::-webkit-scrollbar-thumb {\n    background: var(--SmartThemeBorderColor);\n    border-radius: 2px;\n}\n::-webkit-scrollbar-track {\n    background: transparent;\n}`,
+            },
+        ],
+    },
+    {
+        category: 'Chat Layout',
+        items: [
+            {
+                name: 'Wider chat area',
+                html: `<div style="background:var(--black30a);border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:6px 14px;font-size:0.78em;text-align:center;width:130px">\u2190 wider chat \u2192</div>`,
+                css: `#chat {\n    max-width: 900px;\n    margin: 0 auto;\n}`,
+            },
+            {
+                name: 'Rounded message bubbles',
+                html: `<div style="background:var(--black30a);border:1px solid var(--SmartThemeBorderColor);border-radius:14px;padding:6px 14px;font-size:0.78em;display:inline-block">Sample message</div>`,
+                css: `.mes_text {\n    border-radius: 14px;\n    background: var(--black30a);\n    padding: 8px 14px;\n}`,
+            },
+        ],
+    },
+];
+
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 /** Copies text to clipboard; falls back to execCommand if the Clipboard API fails. */
@@ -342,6 +376,11 @@ function isColorValue(value) {
 /** Escapes HTML special characters for safe embedding in attribute values. */
 function escAttr(str) {
     return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+/** Escapes HTML special characters for safe rendering inside &lt;pre&gt; blocks. */
+function escHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 // ── Build overlay HTML ─────────────────────────────────────────────────────
@@ -377,6 +416,29 @@ function buildVarSections() {
     }).join('');
 }
 
+function buildCustomCssSections() {
+    return CUSTOM_CSS.map(({ category, items }) => {
+        const cards = items.map(({ name, html, css }) => `
+            <div class="csc--card csc--css-card">
+                <div class="csc--card-preview">${html}</div>
+                <button class="csc--css-toggle-btn" aria-expanded="false">
+                    <i class="fa-solid fa-code"></i><span class="csc--css-toggle-label"> Show code</span>
+                </button>
+                <div class="csc--css-block" hidden>
+                    <pre class="csc--css-pre">${escHtml(css)}</pre>
+                </div>
+                <div class="csc--card-name" data-copy="${escAttr(css)}" title="Click to copy CSS for: ${escAttr(name)}">
+                    <i class="fa-regular fa-copy csc--copy-icon"></i> ${name}
+                </div>
+            </div>`).join('');
+        return `
+            <section class="csc--section">
+                <h3 class="csc--section-title">${category}</h3>
+                <div class="csc--grid">${cards}</div>
+            </section>`;
+    }).join('');
+}
+
 function buildOverlayHtml() {
     return `
 <div id="${EXTENSION_ID}_overlay" class="csc--overlay">
@@ -387,6 +449,7 @@ function buildOverlayHtml() {
             <div class="csc--tabs">
                 <button class="menu_button csc--tab csc--tab-active" data-tab="components">Components</button>
                 <button class="menu_button csc--tab" data-tab="vars">CSS Variables</button>
+                <button class="menu_button csc--tab" data-tab="customcss">Custom CSS</button>
             </div>
         </div>
         <div class="csc--content">
@@ -395,6 +458,9 @@ function buildOverlayHtml() {
             </div>
             <div class="csc--pane csc--pane-hidden" data-pane="vars">
                 ${buildVarSections()}
+            </div>
+            <div class="csc--pane csc--pane-hidden" data-pane="customcss">
+                ${buildCustomCssSections()}
             </div>
         </div>
     </div>
@@ -511,6 +577,22 @@ jQuery(async () => {
         document.querySelectorAll('.csc--pane').forEach(p => {
             p.classList.toggle('csc--pane-hidden', p.dataset.pane !== pane);
         });
+    });
+
+    // Toggle CSS code block in Custom CSS cards
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.csc--css-toggle-btn');
+        if (!btn) return;
+        const card = btn.closest('.csc--css-card');
+        const block = card?.querySelector('.csc--css-block');
+        if (!block) return;
+        const willExpand = block.hidden;
+        block.hidden = !willExpand;
+        btn.setAttribute('aria-expanded', String(willExpand));
+        const label = btn.querySelector('.csc--css-toggle-label');
+        if (label) label.textContent = willExpand ? ' Hide code' : ' Show code';
+        const icon = btn.querySelector('i');
+        if (icon) icon.className = willExpand ? 'fa-solid fa-chevron-up' : 'fa-solid fa-code';
     });
 
     // Wire up inline-drawer toggles inside component previews

@@ -22,8 +22,9 @@ The file is organized into labeled sections in this order:
 | --- | --- |
 | **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a CSS class name and an HTML snippet to render as a live preview. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Panels & Layout, Menus & Popups |
 | **CSS variable catalog** | `CSS_VAR_GROUPS` array — each entry has a category name and a list of CSS variable names to display with their live computed values |
-| **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`) |
-| **Build overlay HTML** | Functions that turn the two catalogs into HTML strings (`buildComponentSections`, `buildVarSections`, `buildOverlayHtml`) |
+| **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code |
+| **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`, `escHtml`) |
+| **Build overlay HTML** | Functions that turn the three catalogs into HTML strings (`buildComponentSections`, `buildVarSections`, `buildCustomCssSections`, `buildOverlayHtml`) |
 | **Open / close** | `openCheatSheet`, `closeCheatSheet`, `toggleCheatSheet` — manage overlay visibility and button icon state |
 | **Populate CSS variable swatches** | `populateVarSwatches` — reads live CSS variable values from the browser and injects color swatches or text values into the rendered var cards |
 | **Copy feedback** | `flashCopied` — briefly highlights a card green when the user copies its name |
@@ -33,7 +34,7 @@ The file is organized into labeled sections in this order:
 
 ## How the overlay is built and injected
 
-1. At load time, `buildOverlayHtml()` renders the full overlay as an HTML string from the two catalogs.
+1. At load time, `buildOverlayHtml()` renders the full overlay as an HTML string from the three catalogs.
 2. The string is injected into `document.body` via `insertAdjacentHTML('beforeend', ...)`.
 3. A top-bar icon button is created and prepended to `#top-settings-holder`.
 4. All interaction (open/close, copy, tabs, inline-drawer toggles) is handled by delegated `click` listeners on `document`.
@@ -43,7 +44,9 @@ The file is organized into labeled sections in this order:
 
 ## Click-to-copy behaviour
 
-- Copying is triggered by clicking the **label bar** (`.csc--card-name`) at the bottom of a component card, or the **variable name** (`.csc--var-name`) in a CSS variable card. The preview area itself is not a copy target.
+- Copying is triggered by clicking the **label bar** (`.csc--card-name`) at the bottom of a component card or Custom CSS card, or the **variable name** (`.csc--var-name`) in a CSS variable card. The preview area itself is not a copy target.
+- In **Custom CSS cards**, the label bar's `data-copy` attribute contains the full CSS code string (not a class name). The same delegated handler that serves component cards serves these cards — it copies whatever is in `data-copy`.
+- Custom CSS cards also have a **"Show code" toggle button** (`.csc--css-toggle-btn`) that expands/collapses a `<pre>` block showing the CSS. The toggle does not copy anything; it only controls visibility.
 - Clicking the label/name calls `navigator.clipboard?.writeText()` (optional chaining guards against environments where the Clipboard API is unavailable) and triggers `flashCopied`, which briefly highlights the element green.
 - A `fa-regular fa-copy` icon is shown in the label bar and var-card row as a visual affordance. The icon brightens on card hover via a CSS transition.
 

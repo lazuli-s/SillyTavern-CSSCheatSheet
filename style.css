@@ -254,6 +254,54 @@
     min-width: 22px;
 }
 
+/* ─── Custom CSS cards ──────────────────────────────────────────────────── */
+/* These cards extend .csc--card with an expandable code block.             */
+/* The toggle button is a card-internal control (same pattern as the        */
+/* existing .inline-drawer-toggle), so .menu_button is not used here —      */
+/* it would require too many overrides to sit flush inside the card.        */
+
+.csc--css-card {
+    min-width: 220px;
+    max-width: 340px;
+}
+
+.csc--css-toggle-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+    font-size: 0.78em;
+    padding: 5px 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    color: inherit;
+    transition: opacity var(--animation-duration), background var(--animation-duration);
+}
+
+.csc--css-toggle-btn:hover {
+    opacity: 1;
+    background: var(--black30a);
+}
+
+.csc--css-block {
+    border-top: 1px solid var(--SmartThemeBorderColor);
+    background: var(--black50a);
+}
+
+.csc--css-pre {
+    font-family: var(--monoFontFamily);
+    font-size: 0.75em;
+    margin: 0;
+    padding: 10px 12px;
+    white-space: pre;
+    overflow-x: auto;
+    color: inherit;
+}
+
 /* ─── Per-component preview overrides ───────────────────────────────────── */
 /* select2's real behavior is JS-driven (absolute positioning, hover class   */
 /* toggling). These rules restore correct appearance in a static preview.    */
