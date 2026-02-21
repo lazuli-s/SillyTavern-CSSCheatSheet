@@ -340,36 +340,6 @@ const CSS_VAR_GROUPS = [
 // ── Custom CSS catalog ─────────────────────────────────────────────────────
 const CUSTOM_CSS = [
     {
-        category: 'Scrollbars',
-        items: [
-            {
-                name: 'Hide scrollbar on #chat',
-                html: `<div style="height:60px;width:120px;overflow-y:scroll;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:4px 8px;font-size:0.78em;scrollbar-width:none"><div style="line-height:1.8">Line 1</div><div style="line-height:1.8">Line 2</div><div style="line-height:1.8">Line 3</div><div style="line-height:1.8">Line 4</div><div style="line-height:1.8">Line 5</div></div>`,
-                css: `#chat {\n    overflow-y: scroll;\n    scrollbar-width: none; /* Firefox */\n}\n#chat::-webkit-scrollbar {\n    display: none; /* Chrome, Safari */\n}`,
-            },
-            {
-                name: 'Thin themed scrollbar',
-                html: `<div style="height:60px;width:120px;overflow-y:scroll;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:4px 8px;font-size:0.78em"><div style="line-height:1.8">Line 1</div><div style="line-height:1.8">Line 2</div><div style="line-height:1.8">Line 3</div><div style="line-height:1.8">Line 4</div><div style="line-height:1.8">Line 5</div></div>`,
-                css: `::-webkit-scrollbar {\n    width: 4px;\n}\n::-webkit-scrollbar-thumb {\n    background: var(--SmartThemeBorderColor);\n    border-radius: 2px;\n}\n::-webkit-scrollbar-track {\n    background: transparent;\n}`,
-            },
-        ],
-    },
-    {
-        category: 'Chat Layout',
-        items: [
-            {
-                name: 'Wider chat area',
-                html: `<div style="background:var(--black30a);border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:6px 14px;font-size:0.78em;text-align:center;width:130px">\u2190 wider chat \u2192</div>`,
-                css: `#chat {\n    max-width: 900px;\n    margin: 0 auto;\n}`,
-            },
-            {
-                name: 'Rounded message bubbles',
-                html: `<div style="background:var(--black30a);border:1px solid var(--SmartThemeBorderColor);border-radius:14px;padding:6px 14px;font-size:0.78em;display:inline-block">Sample message</div>`,
-                css: `.mes_text {\n    border-radius: 14px;\n    background: var(--black30a);\n    padding: 8px 14px;\n}`,
-            },
-        ],
-    },
-    {
         category: 'Menus & Context Menus',
         items: [
             {
@@ -391,11 +361,6 @@ const CUSTOM_CSS = [
                 name: 'moonlit-section expanded',
                 html: `<div class="csc--moonlit-sec" style="border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);border-radius:5px;overflow:hidden;width:220px"><div class="csc--moonlit-sec-hdr" style="background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);padding:5px 12px;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);display:flex;justify-content:space-between;align-items:center;cursor:pointer"><span style="font-weight:600;font-size:0.9em">Section Title</span><i class="fa fa-chevron-down" style="font-size:0.85em;transform:rotate(180deg);transition:transform 0.4s"></i></div><div class="csc--moonlit-sec-body" style="padding:10px;font-size:0.82em;opacity:0.8;max-height:2000px;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)">Content visible here</div></div>`,
                 css: `.moonlit-section {\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n    border-radius: 5px;\n    margin-bottom: 15px;\n    overflow: hidden;\n}\n.moonlit-section-header {\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    padding: 5px 12px;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n}\n.moonlit-section-toggle {\n    cursor: pointer;\n    user-select: none;\n}\n.moonlit-section-content {\n    max-height: 0;\n    overflow: hidden;\n    padding: 0 10px;\n    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n    opacity: 0;\n}\n.moonlit-section.expanded .moonlit-section-content {\n    max-height: 2000px;\n    padding: 10px;\n    opacity: 1;\n}`,
-            },
-            {
-                name: 'moonlit-tab-buttons',
-                html: `<div class="csc--moonlit-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);margin-bottom:10px"><button class="csc--moonlit-tab-btn" data-tab="t1" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid var(--SmartThemeBodyColor);cursor:pointer;color:var(--SmartThemeBodyColor);opacity:1;font-size:0.82em">Tab One</button><button class="csc--moonlit-tab-btn" data-tab="t2" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Two</button><button class="csc--moonlit-tab-btn" data-tab="t3" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Three</button></div><div class="csc--moonlit-tab-pane" data-tab="t1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Tab One content</div><div class="csc--moonlit-tab-pane" data-tab="t2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Two content</div><div class="csc--moonlit-tab-pane" data-tab="t3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Three content</div></div>`,
-                css: `.moonlit-tabs {\n    margin-bottom: 20px;\n}\n.moonlit-tab-buttons {\n    display: flex;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    margin-bottom: 15px;\n}\n.moonlit-tab-button {\n    padding: 8px 10px;\n    background: none;\n    border: none;\n    border-bottom: 1px solid transparent;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.7;\n    transition: all 0.5s ease;\n}\n.moonlit-tab-button:hover {\n    opacity: 0.9;\n}\n.moonlit-tab-button.active {\n    opacity: 1;\n    border-bottom: 1px solid var(--SmartThemeBodyColor);\n}\n.moonlit-tab-content {\n    display: none;\n}\n.moonlit-tab-content.active {\n    display: block;\n}`,
             },
         ],
     },
@@ -463,19 +428,19 @@ const CUSTOM_CSS = [
         category: 'Tab Patterns',
         items: [
             {
-                name: 'pill-tab-buttons',
-                html: `<div class="csc--pill-tabs" style="width:240px"><div style="display:flex;gap:4px;padding:3px;background:var(--black30a);border-radius:8px;margin-bottom:8px"><button class="csc--pill-tab-btn" data-tab="p1" style="flex:1;padding:5px 8px;border:none;border-radius:6px;cursor:pointer;background:var(--SmartThemeBodyColor);color:var(--SmartThemeBlurTintColor);opacity:1;font-size:0.82em;font-weight:600">Tab One</button><button class="csc--pill-tab-btn" data-tab="p2" style="flex:1;padding:5px 8px;border:none;border-radius:6px;cursor:pointer;background:transparent;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Two</button><button class="csc--pill-tab-btn" data-tab="p3" style="flex:1;padding:5px 8px;border:none;border-radius:6px;cursor:pointer;background:transparent;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Three</button></div><div class="csc--pill-tab-pane" data-tab="p1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Tab One content</div><div class="csc--pill-tab-pane" data-tab="p2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Two content</div><div class="csc--pill-tab-pane" data-tab="p3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Three content</div></div>`,
-                css: `.pill-tabs {\n    margin-bottom: 20px;\n}\n.pill-tab-bar {\n    display: flex;\n    gap: 4px;\n    padding: 3px;\n    background-color: var(--black30a);\n    border-radius: 8px;\n    margin-bottom: 15px;\n}\n.pill-tab-button {\n    flex: 1;\n    padding: 5px 8px;\n    border: none;\n    border-radius: 6px;\n    cursor: pointer;\n    background: transparent;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.6;\n    transition: all 0.2s ease;\n}\n.pill-tab-button.active {\n    background-color: var(--SmartThemeBodyColor);\n    color: var(--SmartThemeBlurTintColor);\n    opacity: 1;\n    font-weight: 600;\n}\n.pill-tab-content {\n    display: none;\n}\n.pill-tab-content.active {\n    display: block;\n}`,
-            },
-            {
                 name: 'boxed-tab-buttons',
                 html: `<div class="csc--boxed-tabs" style="width:240px"><div style="display:flex"><button class="csc--boxed-tab-btn" data-tab="bx1" style="padding:5px 12px;border:1px solid var(--SmartThemeBorderColor);border-bottom:1px solid var(--SmartThemeBlurTintColor);border-radius:4px 4px 0 0;background:var(--SmartThemeBlurTintColor);cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em;margin-bottom:-1px;z-index:1;position:relative">Tab One</button><button class="csc--boxed-tab-btn" data-tab="bx2" style="padding:5px 12px;border:1px solid transparent;border-radius:4px 4px 0 0;background:transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.55;font-size:0.82em">Tab Two</button><button class="csc--boxed-tab-btn" data-tab="bx3" style="padding:5px 12px;border:1px solid transparent;border-radius:4px 4px 0 0;background:transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.55;font-size:0.82em">Tab Three</button></div><div style="border:1px solid var(--SmartThemeBorderColor);border-radius:0 4px 4px 4px;padding:8px"><div class="csc--boxed-tab-pane" data-tab="bx1" style="font-size:0.82em;opacity:0.7">Tab One content</div><div class="csc--boxed-tab-pane" data-tab="bx2" style="display:none;font-size:0.82em;opacity:0.7">Tab Two content</div><div class="csc--boxed-tab-pane" data-tab="bx3" style="display:none;font-size:0.82em;opacity:0.7">Tab Three content</div></div></div>`,
-                css: `.boxed-tabs {\n    margin-bottom: 20px;\n}\n.boxed-tab-bar {\n    display: flex;\n    align-items: flex-end;\n}\n.boxed-tab-button {\n    padding: 5px 12px;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 4px 4px 0 0;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    background: transparent;\n    margin-bottom: -1px;\n    position: relative;\n    font-size: inherit;\n    transition: opacity 0.15s ease;\n}\n.boxed-tab-button.active {\n    background-color: var(--SmartThemeBlurTintColor);\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBlurTintColor);\n    z-index: 1;\n}\n.boxed-tab-body {\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 0 4px 4px 4px;\n    padding: 10px;\n}\n.boxed-tab-content {\n    display: none;\n}\n.boxed-tab-content.active {\n    display: block;\n}`,
+                css: `.boxed-tabs {\n    margin-bottom: 20px;\n}\n.boxed-tab-bar {\n    display: flex;\n    align-items: flex-end;\n}\n.boxed-tab-button {\n    padding: 5px 12px;\n    border: 1px solid transparent;\n    border-radius: 4px 4px 0 0;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    background: transparent;\n    margin-bottom: -1px;\n    position: relative;\n    font-size: inherit;\n    transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;\n}\n.boxed-tab-button:hover {\n    opacity: 0.8;\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 5%, transparent);\n    border-color: color-mix(in srgb, var(--SmartThemeBorderColor) 60%, transparent);\n}\n.boxed-tab-button.active {\n    background-color: var(--SmartThemeBlurTintColor);\n    opacity: 1;\n    border-color: var(--SmartThemeBorderColor);\n    border-bottom-color: var(--SmartThemeBlurTintColor);\n    z-index: 1;\n}\n.boxed-tab-body {\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 0 4px 4px 4px;\n    padding: 10px;\n}\n.boxed-tab-content {\n    display: none;\n}\n.boxed-tab-content.active {\n    display: block;\n}`,
             },
             {
                 name: 'icon-tab-buttons',
                 html: `<div class="csc--icon-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid var(--SmartThemeBorderColor);margin-bottom:8px"><button class="csc--icon-tab-btn" data-tab="ic1" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border:none;border-bottom:2px solid var(--SmartThemeBodyColor);margin-bottom:-1px;background:none;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:1;font-size:0.78em"><i class="fa-solid fa-house"></i><span>Home</span></button><button class="csc--icon-tab-btn" data-tab="ic2" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.55;font-size:0.78em"><i class="fa-solid fa-gear"></i><span>Settings</span></button><button class="csc--icon-tab-btn" data-tab="ic3" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.55;font-size:0.78em"><i class="fa-solid fa-user"></i><span>Profile</span></button></div><div class="csc--icon-tab-pane" data-tab="ic1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Home content</div><div class="csc--icon-tab-pane" data-tab="ic2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Settings content</div><div class="csc--icon-tab-pane" data-tab="ic3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Profile content</div></div>`,
-                css: `.icon-tabs {\n    margin-bottom: 20px;\n}\n.icon-tab-bar {\n    display: flex;\n    border-bottom: 1px solid var(--SmartThemeBorderColor);\n    margin-bottom: 15px;\n}\n.icon-tab-button {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 3px;\n    padding: 6px 8px;\n    border: none;\n    border-bottom: 2px solid transparent;\n    margin-bottom: -1px;\n    background: none;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    font-size: inherit;\n    transition: opacity 0.15s ease;\n}\n.icon-tab-button.active {\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBodyColor);\n}\n.icon-tab-content {\n    display: none;\n}\n.icon-tab-content.active {\n    display: block;\n}`,
+                css: `.icon-tabs {\n    margin-bottom: 20px;\n}\n.icon-tab-bar {\n    display: flex;\n    border-bottom: 1px solid var(--SmartThemeBorderColor);\n    margin-bottom: 15px;\n}\n.icon-tab-button {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 3px;\n    padding: 6px 8px;\n    border: none;\n    border-bottom: 2px solid transparent;\n    margin-bottom: -1px;\n    background: none;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    font-size: inherit;\n    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;\n}\n.icon-tab-button:hover {\n    opacity: 0.8;\n}\n.icon-tab-button.active {\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBodyColor);\n}\n.icon-tab-content {\n    display: none;\n}\n.icon-tab-content.active {\n    display: block;\n}`,
+            },
+            {
+                name: 'moonlit-tab-buttons',
+                html: `<div class="csc--moonlit-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);margin-bottom:10px"><button class="csc--moonlit-tab-btn" data-tab="t1" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid var(--SmartThemeBodyColor);margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:1;font-size:0.82em">Tab One</button><button class="csc--moonlit-tab-btn" data-tab="t2" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Two</button><button class="csc--moonlit-tab-btn" data-tab="t3" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Three</button></div><div class="csc--moonlit-tab-pane" data-tab="t1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Tab One content</div><div class="csc--moonlit-tab-pane" data-tab="t2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Two content</div><div class="csc--moonlit-tab-pane" data-tab="t3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Three content</div></div>`,
+                css: `.moonlit-tabs {\n    margin-bottom: 20px;\n}\n.moonlit-tab-buttons {\n    display: flex;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    margin-bottom: 15px;\n}\n.moonlit-tab-button {\n    padding: 8px 10px;\n    background: none;\n    border: none;\n    border-bottom: 2px solid transparent;\n    margin-bottom: -1px;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.6;\n    transition: opacity 0.2s ease, border-color 0.2s ease;\n}\n.moonlit-tab-button:hover {\n    opacity: 0.85;\n}\n.moonlit-tab-button.active {\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBodyColor);\n}\n.moonlit-tab-content {\n    display: none;\n}\n.moonlit-tab-content.active {\n    display: block;\n}`,
             },
         ],
     },
@@ -795,25 +760,6 @@ jQuery(async () => {
             b.style.borderBottom = active ? '2px solid var(--SmartThemeBodyColor)' : '2px solid transparent';
         });
         group.querySelectorAll('.csc--moonlit-tab-pane').forEach(p => {
-            p.style.display = p.dataset.tab === tabId ? 'block' : 'none';
-        });
-    });
-
-    // Switch tabs in pill-tab-buttons preview
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.csc--pill-tab-btn');
-        if (!btn) return;
-        e.stopPropagation();
-        const tabId = btn.dataset.tab;
-        const group = btn.closest('.csc--pill-tabs');
-        group.querySelectorAll('.csc--pill-tab-btn').forEach(b => {
-            const active = b.dataset.tab === tabId;
-            b.style.background = active ? 'var(--SmartThemeBodyColor)' : 'transparent';
-            b.style.color = active ? 'var(--SmartThemeBlurTintColor)' : 'var(--SmartThemeBodyColor)';
-            b.style.opacity = active ? '1' : '0.6';
-            b.style.fontWeight = active ? '600' : '';
-        });
-        group.querySelectorAll('.csc--pill-tab-pane').forEach(p => {
             p.style.display = p.dataset.tab === tabId ? 'block' : 'none';
         });
     });
