@@ -417,9 +417,7 @@
     overflow: hidden;
     border: 1px solid var(--SmartThemeBorderColor);
     border-radius: 6px;
-    background-color: var(--SmartThemeBlurTintColor);
-    backdrop-filter: blur(var(--SmartThemeBlurStrength));
-    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    background-color: transparent;
 }
 
 .compact-options a,
@@ -616,9 +614,7 @@
     overflow: hidden;
     border: 1px solid var(--SmartThemeBorderColor);
     border-radius: 6px;
-    background-color: var(--SmartThemeBlurTintColor);
-    backdrop-filter: blur(var(--SmartThemeBlurStrength));
-    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    background-color: transparent;
 }
 
 .compact-context-multiselect a,
