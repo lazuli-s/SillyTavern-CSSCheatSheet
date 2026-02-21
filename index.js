@@ -370,6 +370,16 @@ const CUSTOM_CSS = [
         ],
     },
     {
+        category: 'Menus & Context Menus',
+        items: [
+            {
+                name: 'Compact context menu (.compact-context-menu)',
+                html: `<div class="options-content" role="list" style="width:150px;font-size:var(--mainFontSize);border-radius:6px"><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-star" style="width:14px;height:14px;font-size:inherit"></i><span>Action one</span></a><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-bookmark" style="width:14px;height:14px;font-size:inherit"></i><span>Action two</span></a><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-bell" style="width:14px;height:14px;font-size:inherit"></i><span>Action three</span></a><hr><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-trash-can" style="width:14px;height:14px;font-size:inherit"></i><span>Remove</span></a></div>`,
+                css: `.compact-context-menu {\n    display: block;\n    overflow: hidden;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 6px;\n    background-color: var(--SmartThemeBlurTintColor);\n    backdrop-filter: blur(var(--SmartThemeBlurStrength));\n    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));\n}\n\n.compact-context-menu a {\n    color: var(--SmartThemeBodyColor);\n    padding: 3px 6px;\n    text-decoration: none;\n    display: flex;\n    column-gap: 6px;\n    cursor: pointer;\n    align-items: center;\n    opacity: 0.5;\n    transition: opacity var(--animation-duration);\n}\n\n.compact-context-menu a:hover {\n    opacity: 1;\n}\n\n.compact-context-menu i {\n    width: 14px;\n    height: 14px;\n    font-size: calc(var(--mainFontSize) * 0.9);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    pointer-events: none;\n    flex-shrink: 0;\n}\n\n.compact-context-menu hr {\n    margin: 0;\n    padding: 0;\n    border: none;\n    border-top: 1px solid var(--SmartThemeBorderColor);\n}`,
+            },
+        ],
+    },
+    {
         category: 'Moonlit Echoes Theme',
         items: [
             {
