@@ -72,8 +72,8 @@ const COMPONENTS = [
                 html: '<select class="text_pole"><option>Option one</option><option>Option two</option><option>Option three</option></select>',
             },
             {
-                name: '.select2-selection__choice',
-                html: `<span class="select2-container select2-container--default" style="width:220px">
+                name: '.select2_choice_clickable_buttonstyle',
+                html: `<span class="select2_choice_clickable_buttonstyle" hidden></span><span class="select2-container select2-container--default" style="width:220px">
                     <span class="selection">
                         <span class="select2-selection select2-selection--multiple">
                             <ul class="select2-selection__rendered">
