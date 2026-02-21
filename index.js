@@ -262,6 +262,21 @@ const COMPONENTS = [
                 code: `const { Popup, POPUP_TYPE } = await import('/scripts/popup.js');\nconst popup = new Popup('<p>Custom HTML content</p>', POPUP_TYPE.DISPLAY);\nawait popup.show();`,
                 html: `<button class="menu_button csc--popup-trigger" data-popup-type="display">Open display popup</button>`,
             },
+            {
+                name: 'Popup — .wide_dialogue_popup',
+                code: `const { Popup } = await import('/scripts/popup.js');\nawait Popup.show.text('Wide Popup', 'Content here', { wide: true });`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="wide">Open wide popup</button>`,
+            },
+            {
+                name: 'Popup — .wider_dialogue_popup',
+                code: `const { Popup } = await import('/scripts/popup.js');\nawait Popup.show.text('Wider Popup', 'Content here', { wider: true });`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="wider">Open wider popup</button>`,
+            },
+            {
+                name: 'Popup — .large_dialogue_popup',
+                code: `const { Popup } = await import('/scripts/popup.js');\nawait Popup.show.text('Large Popup', 'Content here', { large: true });`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="large">Open large popup</button>`,
+            },
         ],
     },
 ];
@@ -719,6 +734,12 @@ jQuery(async () => {
             const content = document.createElement('div');
             content.innerHTML = '<p>This is a <b>display popup</b>. It shows arbitrary HTML with no action buttons — just a close button.</p>';
             await new Popup(content, POPUP_TYPE.DISPLAY).show();
+        } else if (type === 'wide') {
+            await Popup.show.text('Wide Popup', 'This popup uses <code>wide: true</code>, which adds <b>.wide_dialogue_popup</b>. It expands to a roughly square (1:1) aspect ratio.', { wide: true });
+        } else if (type === 'wider') {
+            await Popup.show.text('Wider Popup', 'This popup uses <code>wider: true</code>, which adds <b>.wider_dialogue_popup</b>. It is wider than default but does not scale the height.', { wider: true });
+        } else if (type === 'large') {
+            await Popup.show.text('Large Popup', 'This popup uses <code>large: true</code>, which adds <b>.large_dialogue_popup</b>. It fills about 90% of the screen.', { large: true });
         }
     });
 });
