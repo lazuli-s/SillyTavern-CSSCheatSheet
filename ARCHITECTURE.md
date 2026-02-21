@@ -9,7 +9,7 @@ A SillyTavern frontend extension that adds a reference overlay (below the top ba
 | File | Role |
 | --- | --- |
 | `index.js` | All extension logic (see sections below) |
-| `style.css` | CSS for the overlay shell and card layout. ST's `.menu_button` class is used for tab buttons; all other card and layout styles are custom (no suitable ST class exists for the two-zone card or section header patterns). |
+| `style.css` | CSS for the overlay shell and card layout, plus namespaced alias selectors for Custom CSS snippets (e.g., both `.compact-options` and `.csc-compact-options`). ST's `.menu_button` class is used for tab buttons; all other card and layout styles are custom (no suitable ST class exists for the two-zone card or section header patterns). |
 | `manifest.json` | Extension metadata (name, version, entry points) |
 
 ---
@@ -22,7 +22,7 @@ The file is organized into labeled sections in this order:
 | --- | --- |
 | **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a `name`, an `html` snippet to render as a live preview, and an optional `code` string. When `code` is present, clicking the label bar copies the `code` value instead of `name`. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Drawers, Menus & Popups |
 | **CSS variable catalog** | `CSS_VAR_GROUPS` array — each entry has a category name and a list of CSS variable names to display with their live computed values |
-| **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code. Categories: Menus & Context Menus, Moonlit Echoes Theme, WorldInfoDrawer — Chips & Badges, WorldInfoDrawer — Dropdowns, WorldInfoDrawer — Bulk Edit, Tab Patterns (boxed, icon, moonlit-underline) |
+| **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code. Categories: Menus & Context Menus, Moonlit Echoes Theme, WorldInfoDrawer — Chips & Badges, WorldInfoDrawer — Dropdowns, WorldInfoDrawer — Bulk Edit, Tab Patterns (boxed, icon, underline) |
 | **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`, `escHtml`) |
 | **Build overlay HTML** | Functions that turn the three catalogs into HTML strings (`buildComponentSections`, `buildVarSections`, `buildCustomCssSections`, `buildOverlayHtml`) |
 | **Open / close** | `openCheatSheet`, `closeCheatSheet`, `toggleCheatSheet` — manage overlay visibility and button icon state |

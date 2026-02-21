@@ -1,4 +1,4 @@
-# CLAUDE.md - AI Agent Rules for This Repository
+# AGENTS.md - AI Agent Rules for This Repository
 
 This repository is a **SillyTavern frontend extension** that adds a full-screen CSS reference overlay to SillyTavern. It is intended as a **developer tool** — a quick reference for people building other ST extensions.
 
