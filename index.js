@@ -136,6 +136,39 @@ const COMPONENTS = [
         ],
     },
     {
+        category: 'Typography',
+        items: [
+            {
+                name: 'h1',
+                html: '<h1>Heading 1</h1>',
+            },
+            {
+                name: 'h2',
+                html: '<h2>Heading 2</h2>',
+            },
+            {
+                name: 'h3',
+                html: '<h3>Heading 3</h3>',
+            },
+            {
+                name: 'h4',
+                html: '<h4>Heading 4</h4>',
+            },
+            {
+                name: 'h5',
+                html: '<h5>Heading 5</h5>',
+            },
+            {
+                name: 'h6',
+                html: '<h6>Heading 6</h6>',
+            },
+            {
+                name: 'h3.margin0',
+                html: '<h3 class="margin0"><span data-i18n="Example Section">Example Section</span></h3>',
+            },
+        ],
+    },
+    {
         category: 'Panels & Layout',
         items: [
             {
@@ -184,10 +217,6 @@ const COMPONENTS = [
                         <p style="margin:6px 0">Panel content here</p>
                     </div>
                 </div>`,
-            },
-            {
-                name: 'h3.margin0',
-                html: '<h3 class="margin0"><span data-i18n="Example Section">Example Section</span></h3>',
             },
         ],
     },

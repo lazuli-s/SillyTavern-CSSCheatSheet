@@ -20,7 +20,7 @@ The file is organized into labeled sections in this order:
 
 | Section | What it contains |
 | --- | --- |
-| **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a CSS class name and an HTML snippet to render as a live preview. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Panels & Layout |
+| **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a CSS class name and an HTML snippet to render as a live preview. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Panels & Layout |
 | **CSS variable catalog** | `CSS_VAR_GROUPS` array — each entry has a category name and a list of CSS variable names to display with their live computed values |
 | **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`) |
 | **Build overlay HTML** | Functions that turn the two catalogs into HTML strings (`buildComponentSections`, `buildVarSections`, `buildOverlayHtml`) |
