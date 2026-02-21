@@ -133,6 +133,10 @@ const COMPONENTS = [
                 name: '.fa-solid.fa-circle-info.opacity50p',
                 html: '<div class="fa-solid fa-circle-info opacity50p" title="Info tooltip"></div>',
             },
+            {
+                name: '.fa-solid.fa-circle-question',
+                html: '<div class="fa-solid fa-circle-question"></div>',
+            },
         ],
     },
     {
