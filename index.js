@@ -347,7 +347,7 @@ const CUSTOM_CSS = [
         items: [
             {
                 name: 'moonlit-tip-container',
-                html: `<div style="margin:4px 0;border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);border-radius:5px;overflow:hidden;font-size:0.85em;width:220px"><div class="csc--moonlit-tip-hdr" style="padding:6px 10px;background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);display:flex;align-items:center;gap:8px;cursor:pointer"><i class="fa fa-info-circle"></i><span>Tip title here</span><i class="fa fa-chevron-down" style="margin-left:auto;transition:transform 0.3s"></i></div><div class="csc--moonlit-tip-body" style="max-height:0;overflow:hidden;transition:all 0.3s ease"><div style="padding:8px 10px">Content visible here</div></div></div>`,
+                html: `<div style="margin:4px 0;border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);border-radius:5px;overflow:hidden;font-size:0.85em;width:220px"><div class="csc--moonlit-tip-hdr" style="padding:6px 10px;background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);display:flex;align-items:center;gap:8px;cursor:pointer"><i class="fa fa-info-circle"></i><span>Tip title here</span><i class="fa fa-chevron-down" style="margin-left:auto;transition:transform 0.3s;transform:rotate(180deg)"></i></div><div class="csc--moonlit-tip-body" style="max-height:1000px;overflow:hidden;transition:all 0.3s ease"><div style="padding:8px 10px">Content visible here</div></div></div>`,
                 css: `.moonlit-tip-container {\n    margin: 10px 0;\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    border-radius: 5px;\n    overflow: hidden;\n    font-size: 0.9em !important;\n}\n.moonlit-tip-header {\n    padding: 6px 10px;\n    background: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n}\n.moonlit-tip-content {\n    padding: 0;\n    max-height: 0;\n    overflow: hidden;\n    transition: all 0.3s ease;\n    /* JS toggles max-height: 1000px when expanded */\n}`,
             },
             {
@@ -437,13 +437,18 @@ function buildCustomCssSections() {
         const cards = items.map(({ name, html, css }) => `
             <div class="csc--card csc--css-card">
                 <div class="csc--card-preview">${html}</div>
-                <button class="csc--css-toggle-btn" aria-expanded="false">
-                    <i class="fa-solid fa-code"></i><span class="csc--css-toggle-label"> Show code</span>
-                </button>
+                <div class="csc--css-actions">
+                    <button class="csc--css-copy-btn" data-copy="${escAttr(css)}" title="Copy CSS code for: ${escAttr(name)}">
+                        <i class="fa-regular fa-copy"></i><span> Copy code</span>
+                    </button>
+                    <button class="csc--css-toggle-btn" aria-expanded="false" title="Show/hide code">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
                 <div class="csc--css-block" hidden>
                     <pre class="csc--css-pre">${escHtml(css)}</pre>
                 </div>
-                <div class="csc--card-name" data-copy="${escAttr(css)}" title="Click to copy CSS for: ${escAttr(name)}">
+                <div class="csc--card-name" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">
                     <i class="fa-regular fa-copy csc--copy-icon"></i> ${name}
                 </div>
             </div>`).join('');
@@ -595,7 +600,17 @@ jQuery(async () => {
         });
     });
 
-    // Toggle CSS code block in Custom CSS cards
+    // Copy CSS code on "Copy code" button click
+    document.addEventListener('click', (e) => {
+        const copyBtn = e.target.closest('.csc--css-copy-btn');
+        if (!copyBtn) return;
+        const text = copyBtn.dataset.copy;
+        if (!text) return;
+        copyText(text);
+        flashCopied(copyBtn);
+    });
+
+    // Expand/collapse CSS code block via the chevron toggle
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.csc--css-toggle-btn');
         if (!btn) return;
@@ -605,10 +620,6 @@ jQuery(async () => {
         const willExpand = block.hidden;
         block.hidden = !willExpand;
         btn.setAttribute('aria-expanded', String(willExpand));
-        const label = btn.querySelector('.csc--css-toggle-label');
-        if (label) label.textContent = willExpand ? ' Hide code' : ' Show code';
-        const icon = btn.querySelector('i');
-        if (icon) icon.className = willExpand ? 'fa-solid fa-chevron-up' : 'fa-solid fa-code';
     });
 
     // Wire up inline-drawer toggles inside component previews

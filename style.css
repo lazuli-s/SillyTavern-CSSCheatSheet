@@ -255,27 +255,59 @@
 }
 
 /* ─── Custom CSS cards ──────────────────────────────────────────────────── */
-/* These cards extend .csc--card with an expandable code block.             */
-/* The toggle button is a card-internal control (same pattern as the        */
-/* existing .inline-drawer-toggle), so .menu_button is not used here —      */
-/* it would require too many overrides to sit flush inside the card.        */
+/* These cards extend .csc--card with a two-zone action bar (copy + expand) */
+/* and a collapsible code block. Card-internal controls are not .menu_button */
+/* because that class requires too many overrides to sit flush inside a card. */
 
 .csc--css-card {
     min-width: 220px;
     max-width: 340px;
 }
 
-.csc--css-toggle-btn {
-    width: 100%;
+/* Action bar: holds the centered "Copy code" button and the small expand toggle */
+.csc--css-actions {
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+}
+
+/* "Copy code" — takes up remaining width, text centered */
+.csc--css-copy-btn {
+    flex: 1;
     background: transparent;
     border: none;
-    border-top: 1px solid var(--SmartThemeBorderColor);
+    border-right: 1px solid var(--SmartThemeBorderColor);
     font-size: 0.78em;
     padding: 5px 10px;
-    text-align: left;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    color: inherit;
+    transition: opacity var(--animation-duration), background var(--animation-duration);
+}
+
+.csc--css-copy-btn:hover {
+    opacity: 1;
+    background: var(--black30a);
+}
+
+.csc--css-copy-btn.csc--copied {
+    color: var(--active);
+    background: rgba(88,182,0,0.15);
+    opacity: 1;
+    transition: none;
+}
+
+/* Small expand/collapse toggle on the right side of the action bar */
+.csc--css-toggle-btn {
+    background: transparent;
+    border: none;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     opacity: 0.6;
     color: inherit;
@@ -285,6 +317,14 @@
 .csc--css-toggle-btn:hover {
     opacity: 1;
     background: var(--black30a);
+}
+
+.csc--css-toggle-btn i {
+    transition: transform var(--animation-duration);
+}
+
+.csc--css-toggle-btn[aria-expanded="true"] i {
+    transform: rotate(180deg);
 }
 
 .csc--css-block {

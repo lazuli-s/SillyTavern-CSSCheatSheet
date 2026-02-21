@@ -45,8 +45,8 @@ The file is organized into labeled sections in this order:
 ## Click-to-copy behaviour
 
 - Copying is triggered by clicking the **label bar** (`.csc--card-name`) at the bottom of a component card or Custom CSS card, or the **variable name** (`.csc--var-name`) in a CSS variable card. The preview area itself is not a copy target.
-- In **Custom CSS cards**, the label bar's `data-copy` attribute contains the full CSS code string (not a class name). The same delegated handler that serves component cards serves these cards — it copies whatever is in `data-copy`.
-- Custom CSS cards also have a **"Show code" toggle button** (`.csc--css-toggle-btn`) that expands/collapses a `<pre>` block showing the CSS. The toggle does not copy anything; it only controls visibility.
+- In **Custom CSS cards**, the label bar copies only the **snippet name** (same as component cards). The full CSS code is copied via the dedicated **"Copy code" button** (`.csc--css-copy-btn`) in the action bar between the preview and the code block.
+- Custom CSS cards have a **two-zone action bar** (`.csc--css-actions`) below the preview: a centered "Copy code" button on the left/center (`.csc--css-copy-btn`) that copies the full CSS snippet, and a small chevron toggle (`.csc--css-toggle-btn`) on the right that expands/collapses the `<pre>` code block. The chevron rotates 180° via CSS when `aria-expanded="true"`.
 - Clicking the label/name calls `navigator.clipboard?.writeText()` (optional chaining guards against environments where the Clipboard API is unavailable) and triggers `flashCopied`, which briefly highlights the element green.
 - A `fa-regular fa-copy` icon is shown in the label bar and var-card row as a visual affordance. The icon brightens on card hover via a CSS transition.
 
