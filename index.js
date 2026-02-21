@@ -34,8 +34,8 @@ const COMPONENTS = [
                 html: '<button class="menu_button menu_button_icon interactable"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Generate</span></button>',
             },
             {
-                name: 'div.popup-button-ok.menu_button.result-control.menu_button_default.interactable',
-                html: '<div class="popup-button-ok menu_button result-control menu_button_default interactable">OK</div>',
+                name: 'div.popup-button-ok.menu_button.menu_button_default.interactable',
+                html: '<div class="popup-button-ok menu_button menu_button_default interactable">OK</div>',
             },
             {
                 name: '.right_menu_button.fa-solid.interactable',
@@ -351,17 +351,17 @@ const CUSTOM_CSS = [
         items: [
             {
                 name: 'moonlit-tip-container',
-                html: `<div style="margin:4px 0;border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);border-radius:5px;overflow:hidden;font-size:0.85em;width:220px"><div style="padding:6px 10px;background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);display:flex;align-items:center;gap:8px"><i class="fa fa-info-circle"></i><span>Tip title here</span><i class="fa fa-chevron-down" style="margin-left:auto"></i></div></div>`,
+                html: `<div style="margin:4px 0;border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);border-radius:5px;overflow:hidden;font-size:0.85em;width:220px"><div class="csc--moonlit-tip-hdr" style="padding:6px 10px;background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);display:flex;align-items:center;gap:8px;cursor:pointer"><i class="fa fa-info-circle"></i><span>Tip title here</span><i class="fa fa-chevron-down" style="margin-left:auto;transition:transform 0.3s"></i></div><div class="csc--moonlit-tip-body" style="max-height:0;overflow:hidden;transition:all 0.3s ease"><div style="padding:8px 10px">Content visible here</div></div></div>`,
                 css: `.moonlit-tip-container {\n    margin: 10px 0;\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    border-radius: 5px;\n    overflow: hidden;\n    font-size: 0.9em !important;\n}\n.moonlit-tip-header {\n    padding: 6px 10px;\n    background: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n}\n.moonlit-tip-content {\n    padding: 0;\n    max-height: 0;\n    overflow: hidden;\n    transition: all 0.3s ease;\n    /* JS toggles max-height: 1000px when expanded */\n}`,
             },
             {
                 name: 'moonlit-section expanded',
-                html: `<div style="border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);border-radius:5px;overflow:hidden;width:220px"><div style="background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);padding:5px 12px;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);display:flex;justify-content:space-between;align-items:center"><span style="font-weight:600;font-size:0.9em">Section Title</span><i class="fa fa-chevron-down" style="font-size:0.85em;transform:rotate(180deg)"></i></div><div style="padding:10px;font-size:0.82em;opacity:0.8">Content visible here</div></div>`,
+                html: `<div class="csc--moonlit-sec" style="border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);border-radius:5px;overflow:hidden;width:220px"><div class="csc--moonlit-sec-hdr" style="background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);padding:5px 12px;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);display:flex;justify-content:space-between;align-items:center;cursor:pointer"><span style="font-weight:600;font-size:0.9em">Section Title</span><i class="fa fa-chevron-down" style="font-size:0.85em;transform:rotate(180deg);transition:transform 0.4s"></i></div><div class="csc--moonlit-sec-body" style="padding:10px;font-size:0.82em;opacity:0.8;max-height:2000px;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)">Content visible here</div></div>`,
                 css: `.moonlit-section {\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n    border-radius: 5px;\n    margin-bottom: 15px;\n    overflow: hidden;\n}\n.moonlit-section-header {\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    padding: 5px 12px;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n}\n.moonlit-section-toggle {\n    cursor: pointer;\n    user-select: none;\n}\n.moonlit-section-content {\n    max-height: 0;\n    overflow: hidden;\n    padding: 0 10px;\n    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n    opacity: 0;\n}\n.moonlit-section.expanded .moonlit-section-content {\n    max-height: 2000px;\n    padding: 10px;\n    opacity: 1;\n}`,
             },
             {
                 name: 'moonlit-tab-buttons',
-                html: `<div style="width:240px"><div style="display:flex;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);margin-bottom:10px"><button style="padding:7px 10px;background:none;border:none;border-bottom:2px solid var(--SmartThemeBodyColor);cursor:pointer;color:var(--SmartThemeBodyColor);opacity:1;font-size:0.82em">Tab One</button><button style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Two</button><button style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Three</button></div><div style="font-size:0.82em;opacity:0.7;padding:2px 4px">Active tab content here</div></div>`,
+                html: `<div class="csc--moonlit-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);margin-bottom:10px"><button class="csc--moonlit-tab-btn" data-tab="t1" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid var(--SmartThemeBodyColor);cursor:pointer;color:var(--SmartThemeBodyColor);opacity:1;font-size:0.82em">Tab One</button><button class="csc--moonlit-tab-btn" data-tab="t2" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Two</button><button class="csc--moonlit-tab-btn" data-tab="t3" style="padding:7px 10px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;color:var(--SmartThemeBodyColor);opacity:0.6;font-size:0.82em">Tab Three</button></div><div class="csc--moonlit-tab-pane" data-tab="t1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Tab One content</div><div class="csc--moonlit-tab-pane" data-tab="t2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Two content</div><div class="csc--moonlit-tab-pane" data-tab="t3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Three content</div></div>`,
                 css: `.moonlit-tabs {\n    margin-bottom: 20px;\n}\n.moonlit-tab-buttons {\n    display: flex;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    margin-bottom: 15px;\n}\n.moonlit-tab-button {\n    padding: 8px 10px;\n    background: none;\n    border: none;\n    border-bottom: 1px solid transparent;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.7;\n    transition: all 0.5s ease;\n}\n.moonlit-tab-button:hover {\n    opacity: 0.9;\n}\n.moonlit-tab-button.active {\n    opacity: 1;\n    border-bottom: 1px solid var(--SmartThemeBodyColor);\n}\n.moonlit-tab-content {\n    display: none;\n}\n.moonlit-tab-content.active {\n    display: block;\n}`,
             },
         ],
@@ -630,5 +630,48 @@ jQuery(async () => {
         icon?.classList.toggle('down', !isHidden);
         icon?.classList.toggle('fa-circle-chevron-up', isHidden);
         icon?.classList.toggle('fa-circle-chevron-down', !isHidden);
+    });
+
+    // Toggle moonlit-tip-container preview
+    document.addEventListener('click', (e) => {
+        const hdr = e.target.closest('.csc--moonlit-tip-hdr');
+        if (!hdr) return;
+        e.stopPropagation();
+        const body = hdr.nextElementSibling;
+        const chevron = hdr.querySelector('.fa-chevron-down');
+        const isOpen = body.style.maxHeight === '1000px';
+        body.style.maxHeight = isOpen ? '0' : '1000px';
+        if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+
+    // Toggle moonlit-section expanded preview
+    document.addEventListener('click', (e) => {
+        const hdr = e.target.closest('.csc--moonlit-sec-hdr');
+        if (!hdr) return;
+        e.stopPropagation();
+        const body = hdr.nextElementSibling;
+        const chevron = hdr.querySelector('.fa-chevron-down');
+        const isOpen = body.style.maxHeight !== '0' && body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
+        body.style.maxHeight = isOpen ? '0' : '2000px';
+        body.style.opacity = isOpen ? '0' : '0.8';
+        body.style.padding = isOpen ? '0 10px' : '10px';
+        if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+
+    // Switch tabs in moonlit-tab-buttons preview
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.csc--moonlit-tab-btn');
+        if (!btn) return;
+        e.stopPropagation();
+        const tabId = btn.dataset.tab;
+        const group = btn.closest('.csc--moonlit-tabs');
+        group.querySelectorAll('.csc--moonlit-tab-btn').forEach(b => {
+            const active = b.dataset.tab === tabId;
+            b.style.opacity = active ? '1' : '0.6';
+            b.style.borderBottom = active ? '2px solid var(--SmartThemeBodyColor)' : '2px solid transparent';
+        });
+        group.querySelectorAll('.csc--moonlit-tab-pane').forEach(p => {
+            p.style.display = p.dataset.tab === tabId ? 'block' : 'none';
+        });
     });
 });
