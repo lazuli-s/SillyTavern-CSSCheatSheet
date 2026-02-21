@@ -147,6 +147,13 @@ const COMPONENTS = [
                 </div>`,
             },
             {
+                name: '.inline-drawer-toggle.inline-drawer-header',
+                html: `<div class="inline-drawer-toggle inline-drawer-header" style="width:220px;min-width:0">
+                    <b>Panel title</b>
+                    <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+                </div>`,
+            },
+            {
                 name: '.flex-container',
                 html: '<div class="flex-container"><div class="menu_button">A</div><div class="menu_button">B</div><div class="menu_button">C</div></div>',
             },
