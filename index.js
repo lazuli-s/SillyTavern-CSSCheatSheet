@@ -228,6 +228,37 @@ const COMPONENTS = [
             },
         ],
     },
+    {
+        category: 'Menus & Popups',
+        items: [
+            {
+                name: '#options .options-content',
+                html: `<div class="options-content" role="list" style="width:200px">
+                    <a class="interactable" tabindex="0">
+                        <i class="fa-lg fa-solid fa-star"></i>
+                        <span>Action one</span>
+                    </a>
+                    <a class="interactable" tabindex="0">
+                        <i class="fa-lg fa-solid fa-bookmark"></i>
+                        <span>Action two</span>
+                    </a>
+                    <a class="interactable" tabindex="0">
+                        <i class="fa-lg fa-solid fa-bell"></i>
+                        <span>Action three</span>
+                    </a>
+                    <hr>
+                    <a class="interactable" tabindex="0">
+                        <i class="fa-lg fa-solid fa-trash-can"></i>
+                        <span>Remove</span>
+                    </a>
+                    <a class="interactable" tabindex="0">
+                        <i class="fa-lg fa-solid fa-rotate-right"></i>
+                        <span>Reset</span>
+                    </a>
+                </div>`,
+            },
+        ],
+    },
 ];
 
 // ── CSS variable catalog ───────────────────────────────────────────────────
