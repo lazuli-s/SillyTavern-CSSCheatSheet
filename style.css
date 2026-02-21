@@ -217,6 +217,21 @@
     opacity: 0.3;
 }
 
+/* Allow the select element inside card previews to be interactive.         */
+/* .csc--card-preview has pointer-events:none so the card click copies,    */
+/* but we still want the native <select> dropdown to open on click.         */
+.csc--card-preview select {
+    pointer-events: auto;
+}
+
+/* Small clipboard icon shown in the card label bar and var-card row.       */
+/* No matching ST class — FA icon needs minor opacity/size tuning.          */
+.csc--copy-icon {
+    opacity: 0.45;
+    font-size: 0.85em;
+    flex-shrink: 0;
+}
+
 .csc--var-name {
     flex: 1;
     min-width: 0;

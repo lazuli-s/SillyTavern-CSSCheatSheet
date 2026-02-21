@@ -40,6 +40,15 @@ The file is organized into labeled sections in this order:
 
 ---
 
+## Click-to-copy behaviour
+
+- Every component card and CSS variable card has a `data-copy` attribute containing the class/variable name to copy.
+- Clicking a card calls `navigator.clipboard?.writeText()` (optional chaining guards against environments where the Clipboard API is unavailable) and triggers `flashCopied`, which briefly highlights the card green.
+- A `fa-regular fa-copy` icon is shown in the card label bar as a visual affordance.
+- When clicking the `<select>` element inside a component preview, the copy is intentionally skipped so the native dropdown can open normally. Clicking anywhere else on the card still copies.
+
+---
+
 ## CSS variable swatches
 
 Swatch slots are empty in the initial HTML. When the overlay is opened, `populateVarSwatches()` reads each variable's computed value from the browser and fills in either a color swatch or a plain text value. This is done on open (not on load) so values reflect the current theme.

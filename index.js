@@ -184,7 +184,7 @@ function buildComponentSections() {
         const cards = items.map(({ name, html }) => `
             <div class="csc--card" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">
                 <div class="csc--card-preview">${html}</div>
-                <div class="csc--card-name">${name}</div>
+                <div class="csc--card-name"><i class="fa-regular fa-copy csc--copy-icon"></i> ${name}</div>
             </div>`).join('');
         return `
             <section class="csc--section">
@@ -200,6 +200,7 @@ function buildVarSections() {
             <div class="csc--var-card" data-copy="${escAttr(name)}" data-varname="${escAttr(name)}" title="Click to copy: ${escAttr(name)}">
                 <span class="csc--var-swatch-slot"></span>
                 <span class="csc--var-name">${name}</span>
+                <i class="fa-regular fa-copy csc--copy-icon"></i>
             </div>`).join('');
         return `
             <section class="csc--section">
@@ -310,11 +311,12 @@ jQuery(async () => {
 
     // Copy component class name on card click
     document.addEventListener('click', (e) => {
+        if (e.target.closest('select')) return; // let the dropdown open normally
         const card = e.target.closest('.csc--card');
         if (!card) return;
         const text = card.dataset.copy;
         if (!text) return;
-        navigator.clipboard.writeText(text).catch(() => {});
+        navigator.clipboard?.writeText(text)?.catch(() => {});
         flashCopied(card);
     });
 
@@ -324,7 +326,7 @@ jQuery(async () => {
         if (!card) return;
         const text = card.dataset.copy;
         if (!text) return;
-        navigator.clipboard.writeText(text).catch(() => {});
+        navigator.clipboard?.writeText(text)?.catch(() => {});
         flashCopied(card);
     });
 
