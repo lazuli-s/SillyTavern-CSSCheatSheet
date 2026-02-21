@@ -41,6 +41,10 @@ const COMPONENTS = [
                 name: '.right_menu_button.fa-solid.interactable',
                 html: '<div class="right_menu_button fa-solid fa-star interactable" title="Button title" tabindex="0" role="button"></div>',
             },
+            {
+                name: '.mes_button.fa-regular.interactable',
+                html: '<div class="mes_button fa-regular fa-star interactable" title="Button action" tabindex="0" role="button"></div>',
+            },
         ],
     },
     {
