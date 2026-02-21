@@ -397,6 +397,61 @@ const CUSTOM_CSS = [
             },
         ],
     },
+    {
+        category: 'WorldInfoDrawer — Chips & Badges',
+        items: [
+            {
+                name: 'Visibility Chips',
+                html: `<div style="display:flex;align-items:center;gap:0.35em;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:0.25em;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.1em 0.35em;font-size:0.8em;background:var(--black30a)"><i class="fa-solid fa-globe" style="font-size:0.75em"></i> Global</span><span style="display:inline-flex;align-items:center;gap:0.25em;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.1em 0.35em;font-size:0.8em;background:var(--black30a)"><i class="fa-solid fa-comment" style="font-size:0.75em"></i> Chat</span></div>`,
+                css: `.stwid--visibilityChips {\n    display: flex;\n    align-items: center;\n    align-content: flex-start;\n    gap: 0.35em;\n    flex-wrap: wrap;\n    flex: 1 1 auto;\n    min-width: 0;\n    align-self: center;\n}`,
+            },
+            {
+                name: 'Filter Chip',
+                html: `<div style="display:inline-flex;align-items:center;gap:0.25em;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.1em 0.35em;font-size:0.85em;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 85%,black 10%)">Position: <strong>0</strong><i class="fa-solid fa-xmark" style="opacity:0.6;cursor:pointer;margin-left:2px"></i></div>`,
+                css: `.stwid--filterChip {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.25em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: var(--stwid-radius-s, 4px);\n    padding: 0.1em 0.35em;\n    font-size: 0.85em;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);\n}`,
+            },
+            {
+                name: 'Folder Count Badge',
+                html: `<span style="opacity:0.85;background:color-mix(in srgb,var(--SmartThemeBodyColor) 12%,transparent);border-radius:999px;padding:0.1em 0.45em;font-size:0.85em;line-height:1.2">12</span>`,
+                css: `.stwid--folderCount {\n    opacity: 0.85;\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 12%, transparent);\n    border-radius: 999px;\n    padding: 0.1em 0.45em;\n    font-size: 0.85em;\n    line-height: 1.2;\n}`,
+            },
+        ],
+    },
+    {
+        category: 'WorldInfoDrawer — Dropdowns',
+        items: [
+            {
+                name: 'Multiselect Dropdown Wrapper',
+                html: `<div style="position:relative;display:inline-flex;align-items:center;gap:0.35em"><button class="menu_button menu_button_icon" style="font-size:0.85em"><i class="fa-solid fa-eye"></i><span> Visibility</span><i class="fa-solid fa-caret-down" style="margin-left:4px"></i></button></div>`,
+                css: `.stwid--multiselectDropdownWrap {\n    position: relative;\n    display: inline-flex;\n    align-items: center;\n    gap: 0.35em;\n}`,
+            },
+            {
+                name: 'Action List Dropdown Menu',
+                html: `<div style="display:inline-flex;flex-direction:column;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 95%,black 10%);border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.5em;font-size:0.9em;min-width:120px"><div style="display:flex;align-items:center;gap:0.5em;padding:0.2em 0.4em;cursor:pointer"><i class="fa-solid fa-pen"></i><span>Rename</span></div><div style="display:flex;align-items:center;gap:0.5em;padding:0.2em 0.4em;cursor:pointer"><i class="fa-solid fa-copy"></i><span>Duplicate</span></div><div style="display:flex;align-items:center;gap:0.5em;padding:0.2em 0.4em;cursor:pointer"><i class="fa-solid fa-trash" style="opacity:0.8"></i><span>Delete</span></div></div>`,
+                css: `.stwid--listDropdownMenu {\n    --stwid-menu-item-height: 2.05em;\n\n    position: fixed;\n    filter: drop-shadow(1px 1px 2px var(--black50a));\n    z-index: 30000;\n    overflow: clip auto;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: var(--stwid-radius-m, 6px);\n    display: flex;\n    flex-direction: column;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 95%, black 10%);\n    font-size: 0.9em;\n    padding: 0.5em;\n}`,
+            },
+        ],
+    },
+    {
+        category: 'WorldInfoDrawer — Bulk Edit',
+        items: [
+            {
+                name: 'Bulk Edit Container',
+                html: `<div style="display:flex;align-items:center;gap:0.5em;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.35em 0.65em;position:relative"><span style="font-size:0.85em">Depth</span><input type="number" class="text_pole" value="4" style="min-height:5px;padding:0 5px;font-size:0.95em;width:3.5em"></div>`,
+                css: `.stwid--bulkEditContainer {\n    display: flex;\n    align-items: center;\n    gap: 0.5em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: var(--stwid-radius-s, 4px);\n    padding: 0.35em 0.65em;\n    position: relative;\n}`,
+            },
+            {
+                name: 'Compact Number Input',
+                html: `<input type="number" class="text_pole" value="99" style="min-height:5px;padding-left:5px;padding-right:5px;font-size:0.95em;width:3.5em">`,
+                css: `.stwid-compactInput {\n    min-height: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    font-size: 0.95em;\n    width: 3.5em;\n}`,
+            },
+            {
+                name: 'Recursion Checkbox Row',
+                html: `<label style="display:flex;align-items:center;gap:0.4em;font-size:0.9em;cursor:pointer"><input type="checkbox" class="checkbox" style="width:0.85em;height:0.85em"><span>Prioritize</span></label>`,
+                css: `.stwid--recursionRow {\n    display: flex;\n    align-items: center;\n    gap: 0.4em;\n}\n.stwid--recursionRow .checkbox {\n    width: 0.85em;\n    height: 0.85em;\n}`,
+            },
+        ],
+    },
 ];
 
 // ── Helpers ────────────────────────────────────────────────────────────────
