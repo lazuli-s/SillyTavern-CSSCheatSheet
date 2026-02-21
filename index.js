@@ -170,10 +170,6 @@ const COMPONENTS = [
                 name: 'h6',
                 html: '<h6>Heading 6</h6>',
             },
-            {
-                name: 'h3.margin0',
-                html: '<h3 class="margin0"><span data-i18n="Example Section">Example Section</span></h3>',
-            },
         ],
     },
     {
@@ -189,13 +185,6 @@ const COMPONENTS = [
                     <div class="inline-drawer-content" style="display:none">
                         <p style="margin:6px 0">Panel content here</p>
                     </div>
-                </div>`,
-            },
-            {
-                name: '.inline-drawer-toggle.inline-drawer-header',
-                html: `<div class="inline-drawer-toggle inline-drawer-header" style="width:220px;min-width:0">
-                    <b>Panel title</b>
-                    <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
                 </div>`,
             },
             {
