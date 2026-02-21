@@ -22,6 +22,10 @@ const COMPONENTS = [
                 html: '<div class="menu_button fa-solid fa-star" title="Icon button"></div>',
             },
             {
+                name: '.menu_button.world_set.interactable (icon, active color)',
+                html: '<div class="menu_button fa-solid fa-globe world_set interactable" title="Globe button"></div>',
+            },
+            {
                 name: '.menu_button (icon + label)',
                 html: '<div class="menu_button menu_button_icon"><i class="fa-solid fa-star"></i><span>Starred</span></div>',
             },
