@@ -253,3 +253,18 @@
     flex-shrink: 0;
     min-width: 22px;
 }
+
+/* ─── Per-component preview overrides ───────────────────────────────────── */
+/* select2's real behavior is JS-driven (absolute positioning, hover class   */
+/* toggling). These rules restore correct appearance in a static preview.    */
+
+/* Dropdown normally floats absolutely via JS; pin it inline inside the card */
+.csc--card-preview .select2-dropdown {
+    position: static;
+    left: auto;
+}
+
+/* Hover: JS normally adds .--highlighted on mouseover; replicate with :hover */
+.csc--card-preview .select2-results__option--selectable:hover {
+    opacity: 1;
+}
