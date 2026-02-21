@@ -37,15 +37,15 @@ The file is organized into labeled sections in this order:
 2. The string is injected into `document.body` via `insertAdjacentHTML('beforeend', ...)`.
 3. A top-bar icon button is created and prepended to `#top-settings-holder`.
 4. All interaction (open/close, copy, tabs, inline-drawer toggles) is handled by delegated `click` listeners on `document`.
+5. Component card preview areas have `pointer-events: auto`, so every widget inside (buttons, inputs, checkboxes, sliders, etc.) is fully interactive for live demonstration.
 
 ---
 
 ## Click-to-copy behaviour
 
-- Every component card and CSS variable card has a `data-copy` attribute containing the class/variable name to copy.
-- Clicking a card calls `navigator.clipboard?.writeText()` (optional chaining guards against environments where the Clipboard API is unavailable) and triggers `flashCopied`, which briefly highlights the card green.
-- A `fa-regular fa-copy` icon is shown in the card label bar as a visual affordance.
-- When clicking the `<select>` element inside a component preview, the copy is intentionally skipped so the native dropdown can open normally. Clicking anywhere else on the card still copies.
+- Copying is triggered by clicking the **label bar** (`.csc--card-name`) at the bottom of a component card, or the **variable name** (`.csc--var-name`) in a CSS variable card. The preview area itself is not a copy target.
+- Clicking the label/name calls `navigator.clipboard?.writeText()` (optional chaining guards against environments where the Clipboard API is unavailable) and triggers `flashCopied`, which briefly highlights the element green.
+- A `fa-regular fa-copy` icon is shown in the label bar and var-card row as a visual affordance. The icon brightens on card hover via a CSS transition.
 
 ---
 

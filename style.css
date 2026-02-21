@@ -130,10 +130,10 @@
     background: var(--black50a);
 }
 
-/* Preview area: pointer-events off so preview widgets don't intercept card-name clicks */
+/* Preview area: interactive so all widgets (buttons, inputs, sliders, etc.) are usable */
 .csc--card-preview {
     padding: 16px 14px 12px;
-    pointer-events: none;
+    pointer-events: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,19 +215,18 @@
     opacity: 0.3;
 }
 
-/* Allow the select element inside card previews to be interactive.         */
-/* .csc--card-preview has pointer-events:none so the card click copies,    */
-/* but we still want the native <select> dropdown to open on click.         */
-.csc--card-preview select {
-    pointer-events: auto;
-}
-
 /* Small clipboard icon shown in the card label bar and var-card row.       */
 /* No matching ST class — FA icon needs minor opacity/size tuning.          */
 .csc--copy-icon {
     opacity: 0.45;
     font-size: 0.85em;
     flex-shrink: 0;
+    transition: opacity var(--animation-duration);
+}
+
+.csc--card:hover .csc--copy-icon,
+.csc--var-card:hover .csc--copy-icon {
+    opacity: 0.9;
 }
 
 /* Var name — this is the only clickable copy target in a var-card row */
