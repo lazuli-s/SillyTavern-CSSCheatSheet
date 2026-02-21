@@ -37,6 +37,10 @@ const COMPONENTS = [
                 name: 'div.popup-button-ok.menu_button.result-control.menu_button_default.interactable',
                 html: '<div class="popup-button-ok menu_button result-control menu_button_default interactable">OK</div>',
             },
+            {
+                name: '.right_menu_button.fa-solid.interactable',
+                html: '<div class="right_menu_button fa-solid fa-list-ul interactable" title="Select/Create Characters" data-i18n="[title]Select/Create Characters" tabindex="0" role="button"></div>',
+            },
         ],
     },
     {
