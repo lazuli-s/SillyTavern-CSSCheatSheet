@@ -9,7 +9,7 @@ const COMPONENTS = [
     {
         category: 'Buttons',
         items: [
-            {
+{
                 name: '.menu_button',
                 html: '<div class="menu_button">Click me</div>',
             },
@@ -71,7 +71,7 @@ const COMPONENTS = [
                 name: 'select.text_pole',
                 html: '<select class="text_pole"><option>Option one</option><option>Option two</option><option>Option three</option></select>',
             },
-            {
+{
                 name: '.select2_choice_clickable_buttonstyle',
                 html: `<span class="select2_choice_clickable_buttonstyle" hidden></span><span class="select2-container select2-container--default" style="width:220px">
                     <span class="selection">
@@ -345,7 +345,49 @@ const CUSTOM_CSS = [
             {
                 name: 'compact-options',
                 html: `<div class="options-content compact-options" role="list" style="width:150px;font-size:var(--mainFontSize);border-radius:6px"><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-star" style="width:14px;height:14px;font-size:inherit"></i><span>Action one</span></a><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-bookmark" style="width:14px;height:14px;font-size:inherit"></i><span>Action two</span></a><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-bell" style="width:14px;height:14px;font-size:inherit"></i><span>Action three</span></a><hr><a tabindex="0" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-trash-can" style="width:14px;height:14px;font-size:inherit"></i><span>Remove</span></a></div>`,
-                css: `.compact-options {\n    display: block;\n    overflow: hidden;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 6px;\n    background-color: var(--SmartThemeBlurTintColor);\n    backdrop-filter: blur(var(--SmartThemeBlurStrength));\n    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));\n}\n\n.compact-options a {\n    color: var(--SmartThemeBodyColor);\n    padding: 3px 6px;\n    text-decoration: none;\n    display: flex;\n    column-gap: 6px;\n    cursor: pointer;\n    align-items: center;\n    opacity: 0.5;\n    transition: opacity var(--animation-duration);\n}\n\n.compact-options a:hover {\n    opacity: 1;\n}\n\n.compact-options i {\n    width: 14px;\n    height: 14px;\n    font-size: calc(var(--mainFontSize) * 0.9);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    pointer-events: none;\n    flex-shrink: 0;\n}\n\n.compact-options hr {\n    margin: 0;\n    padding: 0;\n    border: none;\n    border-top: 1px solid var(--SmartThemeBorderColor);\n}`,
+                css: `.compact-options {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 6px;
+    background-color: var(--SmartThemeBlurTintColor);
+    backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
+}
+
+.compact-options a {
+    color: var(--SmartThemeBodyColor);
+    padding: 3px 6px;
+    text-decoration: none;
+    display: flex;
+    column-gap: 6px;
+    cursor: pointer;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity var(--animation-duration);
+}
+
+.compact-options a:hover {
+    opacity: 1;
+}
+
+.compact-options i {
+    width: 14px;
+    height: 14px;
+    font-size: calc(var(--mainFontSize) * 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.compact-options hr {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+}`,
             },
         ],
     },
@@ -355,12 +397,58 @@ const CUSTOM_CSS = [
             {
                 name: 'collapsible-tip',
                 html: `<div style="margin:4px 0;border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);border-radius:5px;overflow:hidden;font-size:0.85em;width:220px"><div class="csc--moonlit-tip-hdr" style="padding:6px 10px;background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);display:flex;align-items:center;gap:8px;cursor:pointer"><i class="fa fa-info-circle"></i><span>Tip title here</span><i class="fa fa-chevron-down" style="margin-left:auto;transition:transform 0.3s;transform:rotate(180deg)"></i></div><div class="csc--moonlit-tip-body" style="max-height:1000px;overflow:hidden;transition:all 0.3s ease"><div style="padding:8px 10px">Content visible here</div></div></div>`,
-                css: `.collapsible-tip {\n    margin: 10px 0;\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    border-radius: 5px;\n    overflow: hidden;\n    font-size: 0.9em !important;\n}\n.collapsible-tip-header {\n    padding: 6px 10px;\n    background: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n}\n.collapsible-tip-content {\n    padding: 0;\n    max-height: 0;\n    overflow: hidden;\n    transition: all 0.3s ease;\n    /* JS toggles max-height: 1000px when expanded */\n}`,
+                css: `.collapsible-tip {
+    margin: 10px 0;
+    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 0.9em !important;
+}
+.collapsible-tip-header {
+    padding: 6px 10px;
+    background: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.collapsible-tip-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* JS toggles max-height: 1000px when expanded */
+}`,
             },
             {
                 name: 'collapsible-section',
                 html: `<div class="csc--moonlit-sec" style="border:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);border-radius:5px;overflow:hidden;width:220px"><div class="csc--moonlit-sec-hdr" style="background:color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);padding:5px 12px;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 25%,transparent);display:flex;justify-content:space-between;align-items:center;cursor:pointer"><span style="font-weight:600;font-size:0.9em">Section Title</span><i class="fa fa-chevron-down" style="font-size:0.85em;transform:rotate(180deg);transition:transform 0.4s"></i></div><div class="csc--moonlit-sec-body" style="padding:10px;font-size:0.82em;opacity:0.8;max-height:2000px;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)">Content visible here</div></div>`,
-                css: `.collapsible-section {\n    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n    border-radius: 5px;\n    margin-bottom: 15px;\n    overflow: hidden;\n}\n.collapsible-section-header {\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    padding: 5px 12px;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);\n}\n.collapsible-section-toggle {\n    cursor: pointer;\n    user-select: none;\n}\n.collapsible-section-content {\n    max-height: 0;\n    overflow: hidden;\n    padding: 0 10px;\n    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n    opacity: 0;\n}\n.collapsible-section.expanded .collapsible-section-content {\n    max-height: 2000px;\n    padding: 10px;\n    opacity: 1;\n}`,
+                css: `.collapsible-section {
+    border: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.collapsible-section-header {
+    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);
+    padding: 5px 12px;
+    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 25%, transparent);
+}
+.collapsible-section-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+.collapsible-section-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+.collapsible-section.expanded .collapsible-section-content {
+    max-height: 2000px;
+    padding: 10px;
+    opacity: 1;
+}`,
             },
         ],
     },
@@ -370,22 +458,115 @@ const CUSTOM_CSS = [
             {
                 name: 'round-chip',
                 html: `<span style="display:inline-flex;align-items:center;gap:0.6em;border:1px solid var(--SmartThemeBorderColor);border-radius:999px;padding:0.25em 0.7em;font-size:0.8em;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 85%,black 10%)"><i class="fa-solid fa-globe" style="color:var(--SmartThemeQuoteColor)"></i> Global</span><span style="display:inline-flex;align-items:center;gap:0.6em;border:1px solid var(--SmartThemeBorderColor);border-radius:999px;padding:0.25em 0.7em;font-size:0.8em;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 85%,black 10%)"><i class="fa-solid fa-comment" style="color:var(--SmartThemeQuoteColor)"></i> Chat</span>`,
-                css: `.round-chip {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.6em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 999px;\n    padding: 0.25em 0.7em;\n    font-size: 0.8em;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);\n}\n\n.round-chip .chip-icon {\n    color: var(--SmartThemeQuoteColor);\n}`,
+                css: `.round-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 999px;
+    padding: 0.25em 0.7em;
+    font-size: 0.8em;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);
+}
+
+.round-chip .chip-icon {
+    color: var(--SmartThemeQuoteColor);
+}`,
             },
             {
                 name: 'round-chip-removable',
                 html: `<span style="display:inline-flex;align-items:center;gap:0.6em;border:1px solid var(--SmartThemeBorderColor);border-radius:999px;padding:0.25em 0.45em 0.25em 0.7em;font-size:0.8em;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 85%,black 10%)"><i class="fa-solid fa-globe" style="color:var(--SmartThemeQuoteColor)"></i><span>Global</span><button style="display:inline-flex;align-items:center;justify-content:center;background:none;border:none;margin:0 0 0 0.15em;padding:0;cursor:pointer;color:var(--SmartThemeQuoteColor);line-height:1;font-size:0.95em"><i class="fa-solid fa-xmark" style="display:block;line-height:1"></i></button></span>`,
-                css: `.round-chip-removable {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.6em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 999px;\n    padding: 0.25em 0.45em 0.25em 0.7em;\n    font-size: 0.8em;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);\n}\n\n.round-chip-removable .chip-icon {\n    color: var(--SmartThemeQuoteColor);\n}\n\n.round-chip-removable .round-chip-remove {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    background: none;\n    border: none;\n    margin: 0 0 0 0.15em;\n    padding: 0;\n    cursor: pointer;\n    color: var(--SmartThemeQuoteColor);\n    line-height: 1;\n    font-size: 0.95em;\n}\n\n.round-chip-removable .round-chip-remove .fa-xmark {\n    display: block;\n    line-height: 1;\n}\n\n.round-chip-removable .round-chip-remove:hover {\n    color: color-mix(in srgb, var(--SmartThemeQuoteColor) 80%, var(--SmartThemeBodyColor) 20%);\n}`,
+                css: `.round-chip-removable {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 999px;
+    padding: 0.25em 0.45em 0.25em 0.7em;
+    font-size: 0.8em;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);
+}
+
+.round-chip-removable .chip-icon {
+    color: var(--SmartThemeQuoteColor);
+}
+
+.round-chip-removable .round-chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    margin: 0 0 0 0.15em;
+    padding: 0;
+    cursor: pointer;
+    color: var(--SmartThemeQuoteColor);
+    line-height: 1;
+    font-size: 0.95em;
+}
+
+.round-chip-removable .round-chip-remove .fa-xmark {
+    display: block;
+    line-height: 1;
+}
+
+.round-chip-removable .round-chip-remove:hover {
+    color: color-mix(in srgb, var(--SmartThemeQuoteColor) 80%, var(--SmartThemeBodyColor) 20%);
+}`,
             },
             {
                 name: 'round-chip-removable-prefixed',
                 html: `<span style="display:inline-flex;align-items:center;gap:0.6em;border:1px solid var(--SmartThemeBorderColor);border-radius:999px;padding:0.25em 0.45em 0.25em 0.7em;font-size:0.8em;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 85%,black 10%)"><i class="fa-solid fa-globe" style="color:var(--SmartThemeQuoteColor)"></i><span style="color:var(--SmartThemeQuoteColor)">WI</span><span>Global</span><button style="display:inline-flex;align-items:center;justify-content:center;background:none;border:none;margin:0 0 0 0.15em;padding:0;cursor:pointer;color:var(--SmartThemeQuoteColor);line-height:1;font-size:0.95em"><i class="fa-solid fa-xmark" style="display:block;line-height:1"></i></button></span>`,
-                css: `.round-chip-removable-prefixed {\n    display: inline-flex;\n    align-items: center;\n    gap: 0.6em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 999px;\n    padding: 0.25em 0.45em 0.25em 0.7em;\n    font-size: 0.8em;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);\n}\n\n.round-chip-removable-prefixed .chip-icon,\n.round-chip-removable-prefixed .chip-prefix {\n    color: var(--SmartThemeQuoteColor);\n}\n\n.round-chip-removable-prefixed .round-chip-remove {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    background: none;\n    border: none;\n    margin: 0 0 0 0.15em;\n    padding: 0;\n    cursor: pointer;\n    color: var(--SmartThemeQuoteColor);\n    line-height: 1;\n    font-size: 0.95em;\n}\n\n.round-chip-removable-prefixed .round-chip-remove .fa-xmark {\n    display: block;\n    line-height: 1;\n}\n\n.round-chip-removable-prefixed .round-chip-remove:hover {\n    color: color-mix(in srgb, var(--SmartThemeQuoteColor) 80%, var(--SmartThemeBodyColor) 20%);\n}`,
+                css: `.round-chip-removable-prefixed {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 999px;
+    padding: 0.25em 0.45em 0.25em 0.7em;
+    font-size: 0.8em;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 85%, black 10%);
+}
+
+.round-chip-removable-prefixed .chip-icon,
+.round-chip-removable-prefixed .chip-prefix {
+    color: var(--SmartThemeQuoteColor);
+}
+
+.round-chip-removable-prefixed .round-chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    margin: 0 0 0 0.15em;
+    padding: 0;
+    cursor: pointer;
+    color: var(--SmartThemeQuoteColor);
+    line-height: 1;
+    font-size: 0.95em;
+}
+
+.round-chip-removable-prefixed .round-chip-remove .fa-xmark {
+    display: block;
+    line-height: 1;
+}
+
+.round-chip-removable-prefixed .round-chip-remove:hover {
+    color: color-mix(in srgb, var(--SmartThemeQuoteColor) 80%, var(--SmartThemeBodyColor) 20%);
+}`,
             },
             {
                 name: 'count-badge',
                 html: `<span style="opacity:0.85;background:color-mix(in srgb,var(--SmartThemeBodyColor) 12%,transparent);border-radius:999px;padding:0.1em 0.45em;font-size:0.85em;line-height:1.2">12</span>`,
-                css: `.count-badge {\n    opacity: 0.85;\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 12%, transparent);\n    border-radius: 999px;\n    padding: 0.1em 0.45em;\n    font-size: 0.85em;\n    line-height: 1.2;\n}`,
+                css: `.count-badge {
+    opacity: 0.85;
+    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 12%, transparent);
+    border-radius: 999px;
+    padding: 0.1em 0.45em;
+    font-size: 0.85em;
+    line-height: 1.2;
+}`,
             },
         ],
     },
@@ -395,12 +576,149 @@ const CUSTOM_CSS = [
             {
                 name: 'compact-context-multiselect',
                 html: `<div class="options-content compact-options compact-context-multiselect" role="listbox" aria-multiselectable="true" style="width:170px;font-size:var(--mainFontSize);border-radius:6px"><a tabindex="0" data-selected="true" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-square-check multiselect-check" style="width:14px;height:14px;font-size:inherit;color:var(--SmartThemeEmColor)"></i><i class="fa-solid fa-layer-group" style="width:14px;height:14px;font-size:inherit"></i><span>All active</span></a><a tabindex="0" data-selected="false" style="padding:3px 6px;column-gap:6px"><i class="fa-regular fa-square multiselect-check" style="width:14px;height:14px;font-size:inherit;color:var(--SmartThemeEmColor)"></i><i class="fa-solid fa-globe" style="width:14px;height:14px;font-size:inherit"></i><span>Global</span></a><a tabindex="0" data-selected="true" style="padding:3px 6px;column-gap:6px"><i class="fa-solid fa-square-check multiselect-check" style="width:14px;height:14px;font-size:inherit;color:var(--SmartThemeEmColor)"></i><i class="fa-solid fa-comments" style="width:14px;height:14px;font-size:inherit"></i><span>Chat</span></a></div>`,
-                css: `.compact-context-multiselect {\n    display: block;\n    overflow: hidden;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 6px;\n    background-color: var(--SmartThemeBlurTintColor);\n    backdrop-filter: blur(var(--SmartThemeBlurStrength));\n    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));\n}\n\n.compact-context-multiselect a {\n    color: var(--SmartThemeBodyColor);\n    padding: 3px 6px;\n    text-decoration: none;\n    display: flex;\n    column-gap: 6px;\n    cursor: pointer;\n    align-items: center;\n    opacity: 0.5;\n    transition: opacity var(--animation-duration);\n}\n\n.compact-context-multiselect a:hover,\n.compact-context-multiselect a[data-selected=\"true\"] {\n    opacity: 1;\n}\n\n.compact-context-multiselect i {\n    width: 14px;\n    height: 14px;\n    font-size: calc(var(--mainFontSize) * 0.9);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    pointer-events: none;\n    flex-shrink: 0;\n}\n\n.compact-context-multiselect .multiselect-check {\n    color: var(--SmartThemeEmColor);\n}\n\n.compact-context-multiselect a[data-selected=\"true\"] .multiselect-check {\n    color: var(--SmartThemeEmColor);\n}`,
+                css: `.compact-context-multiselect {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 6px;
+    background-color: var(--SmartThemeBlurTintColor);
+    backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
+}
+
+.compact-context-multiselect a {
+    color: var(--SmartThemeBodyColor);
+    padding: 3px 6px;
+    text-decoration: none;
+    display: flex;
+    column-gap: 6px;
+    cursor: pointer;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity var(--animation-duration);
+}
+
+.compact-context-multiselect a:hover,
+.compact-context-multiselect a[data-selected="true"] {
+    opacity: 1;
+}
+
+.compact-context-multiselect i {
+    width: 14px;
+    height: 14px;
+    font-size: calc(var(--mainFontSize) * 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.compact-context-multiselect .multiselect-check {
+    color: var(--SmartThemeEmColor);
+}
+
+.compact-context-multiselect a[data-selected="true"] .multiselect-check {
+    color: var(--SmartThemeEmColor);
+}`,
+            },
+            {
+                name: 'compact-context-multiselect-ultra',
+                html: `<div class="options-content compact-options compact-context-multiselect-ultra" role="listbox" aria-multiselectable="true" style="width:130px;font-size:0.85em;border-radius:6px"><a tabindex="0" data-selected="true" style="padding:2px 4px;column-gap:4px"><i class="fa-solid fa-square-check multiselect-check" style="width:12px;height:12px;font-size:inherit;color:var(--SmartThemeQuoteColor)"></i><span>All active</span></a><a tabindex="0" data-selected="false" style="padding:2px 4px;column-gap:4px"><i class="fa-regular fa-square multiselect-check" style="width:12px;height:12px;font-size:inherit;color:var(--SmartThemeEmColor)"></i><span>Global</span></a><a tabindex="0" data-selected="true" style="padding:2px 4px;column-gap:4px"><i class="fa-solid fa-square-check multiselect-check" style="width:12px;height:12px;font-size:inherit;color:var(--SmartThemeQuoteColor)"></i><span>Chat</span></a></div>`,
+                css: `.compact-context-multiselect-ultra {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 6px;
+    background-color: var(--SmartThemeBlurTintColor);
+    backdrop-filter: blur(var(--SmartThemeBlurStrength));
+    -webkit-backdrop-filter: blur(var(--SmartThemeBlurStrength));
+}
+
+.compact-context-multiselect-ultra a {
+    color: var(--SmartThemeBodyColor);
+    padding: 2px 4px;
+    text-decoration: none;
+    display: flex;
+    column-gap: 4px;
+    cursor: pointer;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity var(--animation-duration);
+}
+
+.compact-context-multiselect-ultra a:hover,
+.compact-context-multiselect-ultra a[data-selected="true"] {
+    opacity: 1;
+}
+
+.compact-context-multiselect-ultra i {
+    width: 12px;
+    height: 12px;
+    font-size: 0.85em;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.compact-context-multiselect-ultra .multiselect-check {
+    color: var(--SmartThemeEmColor);
+}
+
+.compact-context-multiselect-ultra a[data-selected="true"] .multiselect-check {
+    color: var(--SmartThemeQuoteColor);
+}`,
             },
             {
                 name: 'action-list-dropdown',
                 html: `<div style="display:inline-flex;flex-direction:column;background:color-mix(in srgb,var(--SmartThemeBlurTintColor) 95%,black 10%);filter:drop-shadow(1px 1px 2px var(--black50a));border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.5em;font-size:0.9em;min-width:140px"><div style="min-height:2.05em;height:2.05em;display:flex;flex-direction:row;gap:0.35em;align-items:center;box-sizing:border-box;padding:3px;border-radius:4px;cursor:pointer;transition:background-color 200ms,color 200ms"><i class="fa-solid fa-pen" style="flex:0 0 auto;width:1.05em;text-align:center"></i><span style="flex:1 1 auto;white-space:nowrap">Rename</span></div><div style="min-height:2.05em;height:2.05em;display:flex;flex-direction:row;gap:0.35em;align-items:center;box-sizing:border-box;padding:3px;border-radius:4px;cursor:pointer;transition:background-color 200ms,color 200ms"><i class="fa-solid fa-copy" style="flex:0 0 auto;width:1.05em;text-align:center"></i><span style="flex:1 1 auto;white-space:nowrap">Duplicate</span></div><div style="min-height:2.05em;height:2.05em;display:flex;flex-direction:row;gap:0.35em;align-items:center;box-sizing:border-box;padding:3px;border-radius:4px;cursor:pointer;transition:background-color 200ms,color 200ms"><i class="fa-solid fa-trash" style="flex:0 0 auto;width:1.05em;text-align:center;opacity:0.8"></i><span style="flex:1 1 auto;white-space:nowrap">Delete</span></div></div>`,
-                css: `.action-list-dropdown {\n    --action-list-item-height: 2.05em;\n\n    position: fixed;\n    filter: drop-shadow(1px 1px 2px var(--black50a));\n    z-index: 30000;\n    overflow: clip auto;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 6px;\n    display: flex;\n    flex-direction: column;\n    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 95%, black 10%);\n    font-size: 0.9em;\n    padding: 0.5em;\n}\n\n.action-list-dropdown-item {\n    min-height: var(--action-list-item-height);\n    height: var(--action-list-item-height);\n    color: var(--SmartThemeBodyColor);\n    background-color: rgba(255, 255, 255, 0);\n    cursor: pointer;\n    transition: background-color 200ms, color 200ms, opacity 200ms;\n    display: flex;\n    flex-direction: row;\n    gap: 0.35em;\n    align-items: center;\n    box-sizing: border-box;\n    padding: 3px;\n    border-radius: 6px;\n}\n\n.action-list-dropdown-item:hover {\n    background-color: color-mix(in srgb, var(--customThemeColor) 85%, black 15%);\n}\n\n.action-list-dropdown-item .action-list-dropdown-icon {\n    flex: 0 0 auto;\n    width: 1.05em;\n    text-align: center;\n}\n\n.action-list-dropdown-item .action-list-dropdown-label {\n    flex: 1 1 auto;\n    min-width: fit-content;\n}`,
+                css: `.action-list-dropdown {
+    --action-list-item-height: 2.05em;
+
+    position: fixed;
+    filter: drop-shadow(1px 1px 2px var(--black50a));
+    z-index: 30000;
+    overflow: clip auto;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    background-color: color-mix(in srgb, var(--SmartThemeBlurTintColor) 95%, black 10%);
+    font-size: 0.9em;
+    padding: 0.5em;
+}
+
+.action-list-dropdown-item {
+    min-height: var(--action-list-item-height);
+    height: var(--action-list-item-height);
+    color: var(--SmartThemeBodyColor);
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    transition: background-color 200ms, color 200ms, opacity 200ms;
+    display: flex;
+    flex-direction: row;
+    gap: 0.35em;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 6px;
+}
+
+.action-list-dropdown-item:hover {
+    background-color: color-mix(in srgb, var(--customThemeColor) 85%, black 15%);
+}
+
+.action-list-dropdown-item .action-list-dropdown-icon {
+    flex: 0 0 auto;
+    width: 1.05em;
+    text-align: center;
+}
+
+.action-list-dropdown-item .action-list-dropdown-label {
+    flex: 1 1 auto;
+    min-width: fit-content;
+}`,
             },
         ],
     },
@@ -410,17 +728,61 @@ const CUSTOM_CSS = [
             {
                 name: 'thin-container',
                 html: `<div style="display:flex;align-items:center;gap:0.5em;border:1px solid var(--SmartThemeBorderColor);border-radius:4px;padding:0.35em 0.65em;position:relative;margin-top:0.75em"><span style="position:absolute;top:-0.6em;left:0.4em;font-size:0.7em;padding:0 0.25em;color:var(--SmartThemeEmColor);line-height:1;white-space:nowrap;display:inline-flex;align-items:center;gap:0.35em">Label<i class="fa-solid fa-fw fa-circle-question" style="opacity:0.6;cursor:pointer" title="Help tooltip"></i></span><input type="number" class="text_pole" value="4" style="min-height:5px;padding:0 5px;font-size:0.95em;width:3.5em"></div>`,
-                css: `.thin-container {\n    display: flex;\n    align-items: center;\n    gap: 0.5em;\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 4px;\n    padding: 0.35em 0.65em;\n    position: relative;\n}\n\n.thin-container-label {\n    position: absolute;\n    top: -0.6em;\n    left: 0.4em;\n    font-size: 0.7em;\n    padding: 0 0.25em;\n    color: var(--SmartThemeEmColor);\n    line-height: 1;\n    white-space: nowrap;\n}\n\ni.fa-solid.fa-fw.fa-circle-question.thin-container-label-hint {\n    padding-left: 0.5em;\n}\n\n.thin-container.is-disabled {\n    opacity: 0.4;\n    pointer-events: none;\n}`,
+                css: `.thin-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 4px;
+    padding: 0.35em 0.65em;
+    position: relative;
+}
+
+.thin-container-label {
+    position: absolute;
+    top: -0.6em;
+    left: 0.4em;
+    font-size: 0.7em;
+    padding: 0 0.25em;
+    color: var(--SmartThemeEmColor);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+i.fa-solid.fa-fw.fa-circle-question.thin-container-label-hint {
+    padding-left: 0.5em;
+}
+
+.thin-container.is-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}`,
             },
             {
                 name: 'compact-input',
                 html: `<input type="number" class="text_pole" value="99" style="min-height:5px;padding-left:5px;padding-right:5px;font-size:0.95em;width:3.5em">`,
-                css: `.compact-input {\n    min-height: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    font-size: 0.95em;\n    width: 3.5em;\n}`,
+                css: `.compact-input {
+    min-height: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 0.95em;
+    width: 3.5em;
+}`,
             },
             {
                 name: 'compact-checkbox-row',
                 html: `<label style="display:flex;align-items:center;gap:0.4em;font-size:0.9em;cursor:pointer"><input type="checkbox" class="checkbox" style="width:0.85em;height:0.85em"><span>Prioritize</span></label>`,
-                css: `.compact-checkbox-row {\n    display: flex;\n    align-items: center;\n    gap: 0.4em;\n}\n\n/* override: FA icon checkbox defaults are too large for this compact row */\n.compact-checkbox-row .checkbox {\n    width: 0.85em;\n    height: 0.85em;\n}`,
+                css: `.compact-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+/* override: FA icon checkbox defaults are too large for this compact row */
+.compact-checkbox-row .checkbox {
+    width: 0.85em;
+    height: 0.85em;
+}`,
             },
         ],
     },
@@ -430,17 +792,127 @@ const CUSTOM_CSS = [
             {
                 name: 'boxed-tab',
                 html: `<div class="csc--boxed-tabs" style="width:240px"><div style="display:flex"><button class="csc--boxed-tab-btn csc--active" data-tab="bx1" style="padding:5px 12px;border-radius:4px 4px 0 0;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em;margin-bottom:-1px;position:relative">Tab One</button><button class="csc--boxed-tab-btn" data-tab="bx2" style="padding:5px 12px;border-radius:4px 4px 0 0;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em">Tab Two</button><button class="csc--boxed-tab-btn" data-tab="bx3" style="padding:5px 12px;border-radius:4px 4px 0 0;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em">Tab Three</button></div><div style="border:1px solid var(--SmartThemeBorderColor);border-radius:0 4px 4px 4px;padding:8px"><div class="csc--boxed-tab-pane" data-tab="bx1" style="font-size:0.82em;opacity:0.7">Tab One content</div><div class="csc--boxed-tab-pane" data-tab="bx2" style="display:none;font-size:0.82em;opacity:0.7">Tab Two content</div><div class="csc--boxed-tab-pane" data-tab="bx3" style="display:none;font-size:0.82em;opacity:0.7">Tab Three content</div></div></div>`,
-                css: `.boxed-tab {\n    margin-bottom: 20px;\n}\n.boxed-tab-bar {\n    display: flex;\n    align-items: flex-end;\n}\n.boxed-tab-button {\n    padding: 5px 12px;\n    border: 1px solid transparent;\n    border-radius: 4px 4px 0 0;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    background: transparent;\n    margin-bottom: -1px;\n    position: relative;\n    font-size: inherit;\n    transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;\n}\n.boxed-tab-button:hover {\n    opacity: 0.8;\n    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 5%, transparent);\n    border-color: color-mix(in srgb, var(--SmartThemeBorderColor) 60%, transparent);\n}\n.boxed-tab-button.active {\n    background-color: var(--SmartThemeBlurTintColor);\n    opacity: 1;\n    border-color: var(--SmartThemeBorderColor);\n    border-bottom-color: var(--SmartThemeBlurTintColor);\n    z-index: 1;\n}\n.boxed-tab-panel {\n    border: 1px solid var(--SmartThemeBorderColor);\n    border-radius: 0 4px 4px 4px;\n    padding: 10px;\n}\n.boxed-tab-content {\n    display: none;\n}\n.boxed-tab-content.active {\n    display: block;\n}`,
+                css: `.boxed-tab {
+    margin-bottom: 20px;
+}
+.boxed-tab-bar {
+    display: flex;
+    align-items: flex-end;
+}
+.boxed-tab-button {
+    padding: 5px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.55;
+    background: transparent;
+    margin-bottom: -1px;
+    position: relative;
+    font-size: inherit;
+    transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.boxed-tab-button:hover {
+    opacity: 0.8;
+    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 5%, transparent);
+    border-color: color-mix(in srgb, var(--SmartThemeBorderColor) 60%, transparent);
+}
+.boxed-tab-button.active {
+    background-color: var(--SmartThemeBlurTintColor);
+    opacity: 1;
+    border-color: var(--SmartThemeBorderColor);
+    border-bottom-color: var(--SmartThemeBlurTintColor);
+    z-index: 1;
+}
+.boxed-tab-panel {
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 0 4px 4px 4px;
+    padding: 10px;
+}
+.boxed-tab-content {
+    display: none;
+}
+.boxed-tab-content.active {
+    display: block;
+}`,
             },
             {
                 name: 'icon-tab',
                 html: `<div class="csc--icon-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid var(--SmartThemeBorderColor);margin-bottom:8px"><button class="csc--icon-tab-btn csc--active" data-tab="ic1" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.78em"><i class="fa-solid fa-house"></i><span>Home</span></button><button class="csc--icon-tab-btn" data-tab="ic2" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.78em"><i class="fa-solid fa-gear"></i><span>Settings</span></button><button class="csc--icon-tab-btn" data-tab="ic3" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.78em"><i class="fa-solid fa-user"></i><span>Profile</span></button></div><div class="csc--icon-tab-pane" data-tab="ic1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Home content</div><div class="csc--icon-tab-pane" data-tab="ic2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Settings content</div><div class="csc--icon-tab-pane" data-tab="ic3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Profile content</div></div>`,
-                css: `.icon-tab {\n    margin-bottom: 20px;\n}\n.icon-tab-bar {\n    display: flex;\n    border-bottom: 1px solid var(--SmartThemeBorderColor);\n    margin-bottom: 15px;\n}\n.icon-tab-button {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 3px;\n    padding: 6px 8px;\n    border: none;\n    border-bottom: 2px solid transparent;\n    margin-bottom: -1px;\n    background: none;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.55;\n    font-size: inherit;\n    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;\n}\n.icon-tab-button:hover {\n    opacity: 0.8;\n}\n.icon-tab-button.active {\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBodyColor);\n}\n.icon-tab-content {\n    display: none;\n}\n.icon-tab-content.active {\n    display: block;\n}`,
+                css: `.icon-tab {
+    margin-bottom: 20px;
+}
+.icon-tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--SmartThemeBorderColor);
+    margin-bottom: 15px;
+}
+.icon-tab-button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 8px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    background: none;
+    cursor: pointer;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.55;
+    font-size: inherit;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.icon-tab-button:hover {
+    opacity: 0.8;
+}
+.icon-tab-button.active {
+    opacity: 1;
+    border-bottom-color: var(--SmartThemeBodyColor);
+}
+.icon-tab-content {
+    display: none;
+}
+.icon-tab-content.active {
+    display: block;
+}`,
             },
             {
                 name: 'underline-tab',
                 html: `<div class="csc--moonlit-tabs" style="width:240px"><div style="display:flex;border-bottom:1px solid color-mix(in srgb,var(--SmartThemeBodyColor) 10%,transparent);margin-bottom:10px"><button class="csc--moonlit-tab-btn csc--active" data-tab="t1" style="padding:7px 10px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em">Tab One</button><button class="csc--moonlit-tab-btn" data-tab="t2" style="padding:7px 10px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em">Tab Two</button><button class="csc--moonlit-tab-btn" data-tab="t3" style="padding:7px 10px;margin-bottom:-1px;cursor:pointer;color:var(--SmartThemeBodyColor);font-size:0.82em">Tab Three</button></div><div class="csc--moonlit-tab-pane" data-tab="t1" style="font-size:0.82em;opacity:0.7;padding:2px 4px">Tab One content</div><div class="csc--moonlit-tab-pane" data-tab="t2" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Two content</div><div class="csc--moonlit-tab-pane" data-tab="t3" style="display:none;font-size:0.82em;opacity:0.7;padding:2px 4px">Tab Three content</div></div>`,
-                css: `.underline-tab {\n    margin-bottom: 20px;\n}\n.underline-tab-bar {\n    display: flex;\n    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);\n    margin-bottom: 15px;\n}\n.underline-tab-button {\n    padding: 8px 10px;\n    background: none;\n    border: none;\n    border-bottom: 2px solid transparent;\n    margin-bottom: -1px;\n    cursor: pointer;\n    color: var(--SmartThemeBodyColor);\n    opacity: 0.6;\n    transition: opacity 0.2s ease, border-color 0.2s ease;\n}\n.underline-tab-button:hover {\n    opacity: 0.85;\n}\n.underline-tab-button.active {\n    opacity: 1;\n    border-bottom-color: var(--SmartThemeBodyColor);\n}\n.underline-tab-content {\n    display: none;\n}\n.underline-tab-content.active {\n    display: block;\n}`,
+                css: `.underline-tab {
+    margin-bottom: 20px;
+}
+.underline-tab-bar {
+    display: flex;
+    border-bottom: 1px solid color-mix(in srgb, var(--SmartThemeBodyColor) 10%, transparent);
+    margin-bottom: 15px;
+}
+.underline-tab-button {
+    padding: 8px 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    color: var(--SmartThemeBodyColor);
+    opacity: 0.6;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.underline-tab-button:hover {
+    opacity: 0.85;
+}
+.underline-tab-button.active {
+    opacity: 1;
+    border-bottom-color: var(--SmartThemeBodyColor);
+}
+.underline-tab-content {
+    display: none;
+}
+.underline-tab-content.active {
+    display: block;
+}`,
             },
         ],
     },
@@ -473,12 +945,12 @@ function isColorValue(value) {
 
 /** Escapes HTML special characters for safe embedding in attribute values. */
 function escAttr(str) {
-    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    return str.replace(/&/g, '&').replace(/"/g, '"');
 }
 
-/** Escapes HTML special characters for safe rendering inside &lt;pre&gt; blocks. */
+/** Escapes HTML special characters for safe rendering inside <pre> blocks. */
 function escHtml(str) {
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return str.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
 }
 
 // ── Build overlay HTML ─────────────────────────────────────────────────────
