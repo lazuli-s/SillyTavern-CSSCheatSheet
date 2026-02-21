@@ -111,6 +111,15 @@ const COMPONENTS = [
         ],
     },
     {
+        category: 'Inline Elements',
+        items: [
+            {
+                name: '.note-link-span',
+                html: '<span class="fa-solid fa-circle-question note-link-span"></span>',
+            },
+        ],
+    },
+    {
         category: 'Panels & Layout',
         items: [
             {
