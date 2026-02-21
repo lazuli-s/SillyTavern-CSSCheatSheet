@@ -22,7 +22,7 @@ The file is organized into labeled sections in this order:
 | --- | --- |
 | **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a CSS class name and an HTML snippet to render as a live preview. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Panels & Layout, Menus & Popups |
 | **CSS variable catalog** | `CSS_VAR_GROUPS` array — each entry has a category name and a list of CSS variable names to display with their live computed values |
-| **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code |
+| **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code. Categories: Scrollbars, Chat Layout, Moonlit Echoes Theme |
 | **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`, `escHtml`) |
 | **Build overlay HTML** | Functions that turn the three catalogs into HTML strings (`buildComponentSections`, `buildVarSections`, `buildCustomCssSections`, `buildOverlayHtml`) |
 | **Open / close** | `openCheatSheet`, `closeCheatSheet`, `toggleCheatSheet` — manage overlay visibility and button icon state |
@@ -64,5 +64,6 @@ Swatch slots are empty in the initial HTML. When the overlay is opened, `populat
 | --- | --- |
 | `vendor/SillyTavern-WorldInfoDrawer/` | Reference for patterns used in a sibling ST extension |
 | `vendor/SillyTavern-WorldInfoDrawer/vendor/SillyTavern/` | Full vanilla SillyTavern source — use to look up existing CSS classes and JS APIs before adding new code |
+| `vendor/SillyTavern-MoonlitEchoesTheme/` | Reference for the Moonlit Echoes Theme — used to document its CSS component classes in the Custom CSS catalog |
 
 **Do not modify anything under `vendor/`.**
