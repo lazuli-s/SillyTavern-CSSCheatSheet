@@ -185,6 +185,10 @@ const COMPONENTS = [
                     </div>
                 </div>`,
             },
+            {
+                name: 'h3.margin0',
+                html: '<h3 class="margin0"><span data-i18n="Example Section">Example Section</span></h3>',
+            },
         ],
     },
 ];
