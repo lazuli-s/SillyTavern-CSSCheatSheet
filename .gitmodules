@@ -2,3 +2,6 @@
 	path = vendor/SillyTavern-WorldInfoDrawer
 	url = https://github.com/lazuli-s/SillyTavern-WorldInfoDrawer
 	branch = dev
+[submodule "vendor/SillyTavern-MoonlitEchoesTheme"]
+	path = vendor/SillyTavern-MoonlitEchoesTheme
+	url = https://github.com/RivelleDays/SillyTavern-MoonlitEchoesTheme
