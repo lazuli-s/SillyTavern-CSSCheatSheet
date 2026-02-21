@@ -29,6 +29,10 @@ const COMPONENTS = [
                 name: 'button.menu_button.menu_button_icon.interactable',
                 html: '<button class="menu_button menu_button_icon interactable"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Generate</span></button>',
             },
+            {
+                name: 'div.popup-button-ok.menu_button.result-control.menu_button_default.interactable',
+                html: '<div class="popup-button-ok menu_button result-control menu_button_default interactable">OK</div>',
+            },
         ],
     },
     {
