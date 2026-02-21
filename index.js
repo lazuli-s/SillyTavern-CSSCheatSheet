@@ -146,6 +146,22 @@ const COMPONENTS = [
                 name: '.sysHR (horizontal rule)',
                 html: '<hr class="sysHR">',
             },
+            {
+                name: '.standoutHeader',
+                html: '<div class="standoutHeader" style="width:180px">Section header</div>',
+            },
+            {
+                name: '.standoutHeader.inline-drawer-header',
+                html: `<div class="inline-drawer" style="width:220px;min-width:0">
+                    <div class="inline-drawer-toggle inline-drawer-header standoutHeader">
+                        <b>Drawer header</b>
+                        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+                    </div>
+                    <div class="inline-drawer-content" style="display:none">
+                        <p style="margin:6px 0">Panel content here</p>
+                    </div>
+                </div>`,
+            },
         ],
     },
 ];
