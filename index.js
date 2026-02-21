@@ -25,6 +25,10 @@ const COMPONENTS = [
                 name: '.menu_button (icon + label)',
                 html: '<div class="menu_button menu_button_icon"><i class="fa-solid fa-star"></i><span>Starred</span></div>',
             },
+            {
+                name: 'button.menu_button.menu_button_icon.interactable',
+                html: '<button class="menu_button menu_button_icon interactable"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Generate</span></button>',
+            },
         ],
     },
     {
@@ -53,16 +57,18 @@ const COMPONENTS = [
             },
             {
                 name: '.select2-results',
-                html: `<div class="select2-dropdown" style="width:220px;position:relative;z-index:1">
-                    <div class="select2-search select2-search--dropdown">
-                        <input class="select2-search__field" type="search" placeholder="Search…" tabindex="-1">
-                    </div>
-                    <div class="select2-results">
-                        <ul class="select2-results__options" role="listbox">
-                            <li class="select2-results__option select2-results__option--selectable select2-results__option--selected" role="option">001 Main Characters</li>
-                            <li class="select2-results__option select2-results__option--selectable select2-results__option--highlighted" role="option">002 Worldbuilding</li>
-                            <li class="select2-results__option select2-results__option--selectable" role="option">003 Narrative Arcs</li>
-                        </ul>
+                html: `<div class="select2-container select2-container--default select2-container--open" style="width:220px">
+                    <div class="select2-dropdown select2-dropdown--below">
+                        <div class="select2-search select2-search--dropdown">
+                            <input class="select2-search__field" type="search" placeholder="Search…" tabindex="-1">
+                        </div>
+                        <div class="select2-results">
+                            <ul class="select2-results__options" role="listbox">
+                                <li class="select2-results__option select2-results__option--selectable select2-results__option--selected" role="option">001 Main Characters</li>
+                                <li class="select2-results__option select2-results__option--selectable select2-results__option--highlighted" role="option">002 Worldbuilding</li>
+                                <li class="select2-results__option select2-results__option--selectable" role="option">003 Narrative Arcs</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>`,
             },
