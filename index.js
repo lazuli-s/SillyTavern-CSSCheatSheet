@@ -454,7 +454,10 @@ jQuery(async () => {
     // Inject overlay into body
     document.body.insertAdjacentHTML('beforeend', buildOverlayHtml());
 
-    // Add top-bar icon
+    // Add top-bar icon — wrapped in .drawer so it gets the same vertical
+    // centering (align-items: center) as every other native top-bar icon.
+    const drawer = document.createElement('div');
+    drawer.className = 'drawer';
     const btn = document.createElement('div');
     btn.id = `${EXTENSION_ID}_btn`;
     btn.className = 'drawer-icon fa-solid fa-palette fa-fw closedIcon';
@@ -464,7 +467,8 @@ jQuery(async () => {
         e.stopPropagation();
         toggleCheatSheet();
     });
-    document.getElementById('top-settings-holder')?.prepend(btn);
+    drawer.appendChild(btn);
+    document.getElementById('top-settings-holder')?.prepend(drawer);
 
     // Close on overlay backdrop click (outside the panel)
     document.getElementById(`${EXTENSION_ID}_overlay`).addEventListener('click', (e) => {
