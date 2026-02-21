@@ -356,3 +356,56 @@
 .csc--card-preview .select2-results__option--selectable:hover {
     opacity: 1;
 }
+
+/* ─── Tab pattern preview: class-driven states ───────────────────────────── */
+/* Visual state (opacity, bg, border) is driven by .csc--active rather than  */
+/* inline styles, so CSS transitions and :hover work in the live preview.    */
+
+.csc--boxed-tab-btn {
+    border: 1px solid transparent;
+    background: transparent;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.csc--boxed-tab-btn:hover {
+    opacity: 0.8;
+    background-color: color-mix(in srgb, var(--SmartThemeBodyColor) 5%, transparent);
+    border-color: color-mix(in srgb, var(--SmartThemeBorderColor) 60%, transparent);
+}
+.csc--boxed-tab-btn.csc--active {
+    background-color: var(--SmartThemeBlurTintColor);
+    opacity: 1;
+    border-color: var(--SmartThemeBorderColor);
+    border-bottom-color: var(--SmartThemeBlurTintColor);
+    z-index: 1;
+}
+
+.csc--icon-tab-btn {
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.csc--icon-tab-btn:hover {
+    opacity: 0.8;
+}
+.csc--icon-tab-btn.csc--active {
+    opacity: 1;
+    border-bottom-color: var(--SmartThemeBodyColor);
+}
+
+.csc--moonlit-tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.csc--moonlit-tab-btn:hover {
+    opacity: 0.85;
+}
+.csc--moonlit-tab-btn.csc--active {
+    opacity: 1;
+    border-bottom-color: var(--SmartThemeBodyColor);
+}
