@@ -39,7 +39,7 @@ const COMPONENTS = [
             },
             {
                 name: '.right_menu_button.fa-solid.interactable',
-                html: '<div class="right_menu_button fa-solid fa-list-ul interactable" title="Select/Create Characters" data-i18n="[title]Select/Create Characters" tabindex="0" role="button"></div>',
+                html: '<div class="right_menu_button fa-solid fa-star interactable" title="Button title" tabindex="0" role="button"></div>',
             },
         ],
     },
