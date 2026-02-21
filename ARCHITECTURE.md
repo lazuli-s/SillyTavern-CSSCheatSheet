@@ -20,7 +20,7 @@ The file is organized into labeled sections in this order:
 
 | Section | What it contains |
 | --- | --- |
-| **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a CSS class name and an HTML snippet to render as a live preview. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Panels & Layout, Menus & Popups |
+| **Component catalog** | `COMPONENTS` array — each entry has a category name and a list of items, each with a `name`, an `html` snippet to render as a live preview, and an optional `code` string. When `code` is present, clicking the label bar copies the `code` value instead of `name`. Categories: Buttons, Text Inputs, Select / Dropdown, Toggles & Checkboxes, Inline Elements, Typography, Panels & Layout, Menus & Popups |
 | **CSS variable catalog** | `CSS_VAR_GROUPS` array — each entry has a category name and a list of CSS variable names to display with their live computed values |
 | **Custom CSS catalog** | `CUSTOM_CSS` array — each entry has a category name and a list of items, each with a `name`, a preview `html` snippet, and a `css` string containing the full copyable CSS code. Categories: Scrollbars, Chat Layout, Moonlit Echoes Theme |
 | **Helpers** | Small utility functions reused elsewhere (`isColorValue`, `escAttr`, `escHtml`) |
@@ -37,8 +37,9 @@ The file is organized into labeled sections in this order:
 1. At load time, `buildOverlayHtml()` renders the full overlay as an HTML string from the three catalogs.
 2. The string is injected into `document.body` via `insertAdjacentHTML('beforeend', ...)`.
 3. A top-bar icon button is created and prepended to `#top-settings-holder`.
-4. All interaction (open/close, copy, tabs, inline-drawer toggles) is handled by delegated `click` listeners on `document`.
-5. Component card preview areas have `pointer-events: auto`, so every widget inside (buttons, inputs, checkboxes, sliders, etc.) is fully interactive for live demonstration.
+4. All interaction (open/close, copy, tabs, inline-drawer toggles, popup triggers) is handled by delegated `click` listeners on `document`.
+5. Component card preview areas have `pointer-events: auto`, so every widget inside (buttons, inputs, checkboxes, sliders, popup trigger buttons, etc.) is fully interactive for live demonstration.
+6. **Popup demo cards** in "Menus & Popups" each contain a `.csc--popup-trigger` button. Clicking it dynamically imports `Popup` and `POPUP_TYPE` from `/scripts/popup.js` (ST's popup module) and fires the matching popup type. The import is deferred to click-time so it doesn't run at extension load. The `code` field on these items makes the label bar copy the JS snippet (including the import line) rather than just the display name.
 
 ---
 

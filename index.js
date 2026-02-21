@@ -242,6 +242,26 @@ const COMPONENTS = [
                     </a>
                 </div>`,
             },
+            {
+                name: 'Popup.show.text()',
+                code: `const { Popup } = await import('/scripts/popup.js');\nawait Popup.show.text('Title', 'Message here');`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="text">Open text popup</button>`,
+            },
+            {
+                name: 'Popup.show.confirm()',
+                code: `const { Popup } = await import('/scripts/popup.js');\nconst result = await Popup.show.confirm('Are you sure?', 'This action cannot be undone.');`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="confirm">Open confirm popup</button>`,
+            },
+            {
+                name: 'Popup.show.input()',
+                code: `const { Popup } = await import('/scripts/popup.js');\nconst value = await Popup.show.input('Enter value', 'Describe the field:', 'default');`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="input">Open input popup</button>`,
+            },
+            {
+                name: 'new Popup(html, POPUP_TYPE.DISPLAY)',
+                code: `const { Popup, POPUP_TYPE } = await import('/scripts/popup.js');\nconst popup = new Popup('<p>Custom HTML content</p>', POPUP_TYPE.DISPLAY);\nawait popup.show();`,
+                html: `<button class="menu_button csc--popup-trigger" data-popup-type="display">Open display popup</button>`,
+            },
         ],
     },
 ];
@@ -403,10 +423,10 @@ function escHtml(str) {
 
 function buildComponentSections() {
     return COMPONENTS.map(({ category, items }) => {
-        const cards = items.map(({ name, html }) => `
+        const cards = items.map(({ name, html, code }) => `
             <div class="csc--card">
                 <div class="csc--card-preview">${html}</div>
-                <div class="csc--card-name" data-copy="${escAttr(name)}" title="Click to copy: ${escAttr(name)}"><i class="fa-regular fa-copy csc--copy-icon"></i> ${name}</div>
+                <div class="csc--card-name" data-copy="${escAttr(code || name)}" title="Click to copy: ${escAttr(name)}"><i class="fa-regular fa-copy csc--copy-icon"></i> ${name}</div>
             </div>`).join('');
         return `
             <section class="csc--section">
@@ -680,5 +700,25 @@ jQuery(async () => {
         group.querySelectorAll('.csc--moonlit-tab-pane').forEach(p => {
             p.style.display = p.dataset.tab === tabId ? 'block' : 'none';
         });
+    });
+
+    // Open ST popup demos — dynamically import Popup only when first needed
+    document.addEventListener('click', async (e) => {
+        const trigger = e.target.closest('.csc--card-preview .csc--popup-trigger');
+        if (!trigger) return;
+        e.stopPropagation(); // don't copy to clipboard
+        const { Popup, POPUP_TYPE } = await import('/scripts/popup.js');
+        const type = trigger.dataset.popupType;
+        if (type === 'text') {
+            await Popup.show.text('Text Popup', 'This is a <b>text popup</b>. It displays content with a single OK button.');
+        } else if (type === 'confirm') {
+            await Popup.show.confirm('Confirm Popup', 'This is a <b>confirm popup</b>. It offers Yes and No buttons and returns the user\'s choice.');
+        } else if (type === 'input') {
+            await Popup.show.input('Input Popup', 'This is an <b>input popup</b>. It shows a text field and returns the entered value.', 'default value');
+        } else if (type === 'display') {
+            const content = document.createElement('div');
+            content.innerHTML = '<p>This is a <b>display popup</b>. It shows arbitrary HTML with no action buttons — just a close button.</p>';
+            await new Popup(content, POPUP_TYPE.DISPLAY).show();
+        }
     });
 });
